@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment_menu_tool_bar.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_border_top"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_all_component"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:orientation="horizontal"
+
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/img_back"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/back_icon"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Back"
+                        android:textColor="@color/dim_gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center_horizontal"
+                        android:text="Thông Tin Khách Hàng"
+                        android:textColor="@color/dim_gray"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="@dimen/marginbottom_all_component"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="left"
+                    android:text="Thông tin cá nhân"
+                    android:textColor="@color/deep_black"
+                    android:textSize="14dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/ln_thongtincanhan"
+                        android:layout_width="169dp"
+                        android:layout_height="@dimen/button_height"
+
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/layout_phone_number_bg_uncheck"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/margin_all_component">
+
+
+                        <EditText
+                            android:id='@+id/edt_tenkh'
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+
+                            android:background="@null"
+                            android:backgroundTint="@color/light_silver_gray"
+                            android:gravity="left"
+                            android:hint="Tên khách hàng"
+                            android:inputType="text"
+                            android:maxLength="12"
+                            android:maxLines="1"
+
+                            android:textColorHint="@color/light_silver_gray"
+                            android:translationY="2dp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ln_hokh"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+
+                        android:layout_marginLeft="@dimen/margin_all_component"
+                        android:layout_marginBottom="@dimen/margin_all_component"
+                        android:background="@drawable/layout_phone_number_bg_uncheck"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/marginbottom_all_component">
+
+
+                        <EditText
+                            android:id='@+id/edt_hokh'
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:background="@null"
+                            android:backgroundTint="@color/light_silver_gray"
+                            android:gravity="left"
+                            android:hint="Họ khách hàng"
+                            android:inputType="text"
+                            android:maxLength="12"
+                            android:maxLines="1"
+                            android:textColorHint="@color/light_silver_gray"
+                            android:textSize="18dp"
+                            android:translationY="2dp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ln_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+
+                    android:layout_marginBottom="@dimen/marginbottom_all_component"
+                    android:background="@drawable/layout_phone_number_bg_uncheck"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/marginbottom_all_component">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+
+                        android:layout_marginRight="@dimen/marginbottom_all_component"
+                        android:src="@drawable/img_vietnam_flag"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id='@+id/tv_plus_84'
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/tv_plus_84"
+                        android:textColor="@color/light_silver_gray"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id='@+id/tv_vertical_line'
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginRight="@dimen/marginbottom_all_component"
+
+                        android:background="@drawable/line"
+                        android:textColor="@color/light_silver_gray"
+
+                        tools:srcCompat="@drawable/line" />
+
+                    <EditText
+                        android:id='@+id/edt_phone_number'
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+
+                        android:background="@null"
+                        android:backgroundTint="@color/light_silver_gray"
+                        android:gravity="left"
+                        android:hint="@string/et_phone_number"
+                        android:inputType="phone"
+                        android:maxLength="12"
+                        android:maxLines="1"
+                        android:textColorHint="@color/light_silver_gray"
+                        android:translationY="2dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ln_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+
+                    android:layout_marginBottom="@dimen/marginbottom_all_component"
+                    android:background="@drawable/layout_phone_number_bg_uncheck"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/marginbottom_all_component">
+
+
+                    <EditText
+                        android:id='@+id/edt_password'
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:background="@null"
+                        android:backgroundTint="@color/light_silver_gray"
+                        android:gravity="left"
+                        android:hint="@string/sign_in_et_password"
+                        android:inputType="textPassword"
+                        android:maxLength="12"
+                        android:maxLines="1"
+                        android:textColorHint="@color/light_silver_gray"
+                        android:translationY="2dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/marginbottom_all_component"
+
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="25dp"
+                        android:layout_height="match_parent"
+
+                        android:layout_marginRight="@dimen/marginbottom_all_component"
+                        tools:ignore="TouchTargetSizeCheck">
+
+                    </CheckBox>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/roboto"
+                        android:gravity="left"
+                        android:text="Chấp nhận Chính sách"
+                        android:textColor="@color/deep_black"
+                        android:textSize="16dp"
+                        android:translationY="-10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/marginbottom_all_component"
+                    android:gravity="left"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="25dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/marginbottom_all_component"
+                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck">
+
+                    </CheckBox>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/roboto"
+                        android:gravity="left"
+                        android:text="Chấp nhận Chương trình Thành Viên"
+                        android:textColor="@color/deep_black"
+                        android:textSize="16dp"
+                        android:translationY="-10dp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_sign_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginBottom="@dimen/marginbottom_all_component"
+                    android:height="@dimen/button_height"
+                    android:background="@drawable/btn_not_active_background"
+                    android:fontFamily="@font/roboto"
+                    android:text="Tiếp theo"
+                    android:textAllCaps="false"
+
+                    android:textSize="16dp" />
+
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</RelativeLayout>

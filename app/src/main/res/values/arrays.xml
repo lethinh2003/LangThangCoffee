@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="ld_activityScreenTitles">
+        <item></item>
+        <item>Trang chủ</item>
+        <item>Đặt hàng</item>
+        <item>Đăng nhập</item>
+    </string-array>
+
+    <string-array name="ld_activityScreenTitlesAuthenciated">
+        <item></item>
+        <item>Trang chủ</item>
+        <item>Tài khoản</item>
+        <item>Đặt hàng</item>
+        <item>Đăng xuất</item>
+    </string-array>
+
+    <array name="ld_activityScreenIcons">
+        <item>@drawable/ic_close</item>
+        <item>@drawable/ic_dash_board</item>
+        <item>@drawable/ic_cart</item>
+        <item>@drawable/ic_sign_in</item>
+    </array>
+    <array name="ld_activityScreenIconsAuthenciated">
+        <item>@drawable/ic_close</item>
+        <item>@drawable/ic_dash_board</item>
+        <item>@drawable/ic_profile</item>
+        <item>@drawable/ic_cart</item>
+        <item>@drawable/ic_sign_in</item>
+    </array>
+
+</resources>

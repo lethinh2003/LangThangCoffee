@@ -1,0 +1,84 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="160dp"
+    android:layout_height="320dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    android:background="@drawable/custom_ln_item_food_drink"
+    android:layout_gravity="right"
+    >
+
+    <LinearLayout
+        android:background="@drawable/custom_ln_item_food_drink"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="140dp"
+            android:layout_height="180dp"
+            android:background="@drawable/custom_ln_item_food_drink_2"
+            android:gravity="center">
+
+            <ImageView
+                android:src="@drawable/cafe1"
+                android:layout_margin="10dp"
+                android:id="@+id/img_food"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:contentDescription="TODO" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_gravity="start"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_food_name"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="start"/>
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_food_price"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:alpha="0.65"
+            android:text=""
+            android:textColor="#FFFFFF"
+            tools:ignore="TextSizeCheck" />
+
+
+
+    </LinearLayout>
+    <Button
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="116dp"
+        android:layout_height="32dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_btn_deep_orange_radius_30dp"
+        android:padding="10dp"
+        android:text="@string/all_learn_about_item"
+        android:textSize="10sp"
+        tools:ignore="SmallSp,TextSizeCheck,TouchTargetSizeCheck"></Button>
+</RelativeLayout>

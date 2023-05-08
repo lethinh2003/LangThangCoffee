@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/dim_gray"
+    android:orientation="vertical">
+
+    <com.makeramen.roundedimageview.RoundedImageView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_speciOffer"
+        android:adjustViewBounds="true"
+        app:riv_corner_radius="10dp"
+        android:background="@drawable/cb1"
+        android:layout_margin="30dp">
+    </com.makeramen.roundedimageview.RoundedImageView>
+
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_margin="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/custom_btn_transparent_radius_30dp">
+
+            <com.makeramen.roundedimageview.RoundedImageView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                app:riv_corner_radius="10dp"
+                android:background="@drawable/background_speci_offer">
+            </com.makeramen.roundedimageview.RoundedImageView>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tv_speci_offer_titile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="40sp" />
+
+                <me.biubiubiu.justifytext.library.JustifyTextView
+                    android:layout_below="@id/tv_speci_offer_titile"
+                    android:id="@+id/tv_speci_offer_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

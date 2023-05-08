@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ln_page_1_dash_board"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_charcoal"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/img_dash_board"
+        android:scaleType="centerCrop"
+        android:gravity="center">
+
+
+        <TextView
+            android:layout_marginTop="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ln_page_1_dash_board_title"
+            android:textSize="15pt"
+            android:textColor="@color/dark_sienna"
+            android:gravity="center"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all_app_name_uppercase"
+            android:textSize="15pt"
+            android:textColor="@color/light_taupe_gray"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ln_page_1_dash_board_slogan"
+            android:textSize="8pt"
+            android:textColor="@color/white"
+            android:gravity="center"
+            />
+
+        <Button
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/custom_btn_deep_orange_radius_30dp"
+            android:text="@string/ln_page_1_dash_board_btn">
+        </Button>
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ln_page_1_dash_board_space"
+        android:textColor="@color/light_silver_gray"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:textSize="35sp" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp2_space"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        android:layout_marginTop="30dp"/>
+
+    <me.biubiubiu.justifytext.library.JustifyTextView
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="match_parent"
+        android:layout_width = "match_parent"
+        android:text="@string/ln_page_1_dash_board_desc_sapce"
+        android:textColor="@color/light_silver_gray"
+        android:textSize="16sp" />
+
+
+</LinearLayout>

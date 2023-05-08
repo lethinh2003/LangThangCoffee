@@ -1,0 +1,85 @@
+<resources>
+    <!--  All  -->
+    <string name="app_name"></string>
+    <string name="all_app_name_uppercase"><b>THE LANG THANG \n COFFEE</b></string>
+
+    <!--    Layout-->
+
+
+    <!-- Fragment Sign In    -->
+    <string name="rl_ln_fragment_dash_board_title">Chào Mừng Bạn Đến Với</string>
+    <string name="tv_plus_84">+84</string>
+    <string name="tv_vertical_line">|</string>
+    <string name="et_phone_number">Nhập số điện thoại</string>
+    <string name="sign_in_et_password">Mật khẩu từ 6 kí tự</string>
+    <string name="btn_sign_in">Đăng nhập</string>
+    <string name="tv_or"><b>HOẶC</b></string>
+    <string name="tv_sign_in_with_google">Đăng nhập với Google</string>
+    <string name="tv_new_register">Tạo tài khoản mới</string>
+
+    <!-- First page of Dash Board-->
+    <string name="ln_page_1_dash_board_title">#Welcom</string>
+    <string name="ln_page_1_dash_board_btn">Trải nghiệm</string>
+    <string name="ln_page_1_dash_board_slogan">Không Chỉ Là Coffee \n Chúng Tôi Bán Cả Sự Trải Nghiệm</string>
+    <string name="ln_page_1_dash_board_space">Không gian</string>
+    <string name="ln_page_1_dash_board_desc_sapce">Không gian của LANGTHANG COFFEE được thiết kế với tông màu vàng ấm áp và thoải mái. Đồ nội thất được bố trí thông minh và tinh tế để mang lại sự thoải mái cho khách hàng. Bức tranh nghệ thuật treo trên tường cùng với đèn lồng pha lê tạo ra một không gian sang trọng và quyến rũ. Bạn có thể ngồi ở các góc ngồi riêng tư hoặc các bàn đơn tùy theo sở thích của mình. LANGTHANG COFFEE sẽ là một nơi lý tưởng để bạn tìm kiếm sự yên bình và thư giãn.\n</string>
+    <string name="vp2_page_1_dash_board_space">vp2</string>
+
+    <!-- Second page of Dash Board   -->
+    <string name="rl_page_2_dash_board_btn">Tìm hiểu ngay ➞</string>
+    <string name="rl_page_2_dash_board_title">Best seller\n #1\n Cà phê\n sữa</string>
+
+    <!-- Third page of Dash Board    -->
+    <string name="ln_page_3_dash_board_title">CÓ GÌ\nTRONG\nTHỰC ĐƠN ?</string>
+    <string name="caffe">Cà phê</string>
+    <string name="MilkTea">Trà sữa</string>
+    <string name="Soda">Soda</string>
+    <string name="SweetCake">Bánh ngọt</string>
+
+    <!-- Fourth page of Dash Board    -->
+    <string name="ln_page_4_dash_board_title">CÙNG VỚI NHỮNG ƯU ĐÃI</string>
+    <string name="ln_ln_page_4_dash_board_title_1">ƯU ĐÃI #1</string>
+    <string name="ln_ln_page_4_dash_board_title_2">ƯU ĐÃI #2</string>
+    <string name="ln_ln_page_4_dash_board_desc_1">Sự kết hợp giữa Cappuccino và bánh bông lan nhân khô nho mang đến hương vị ngọt ngào, thơm ngon và tươi mát sẽ làm dịu cơn khát vào những ngày nóng bức. Bánh bông lan nhân khô nho sẽ tạo ra một vị ngọt dịu, cùng với vị giòn của bánh, mang lại trải nghiệm thưởng thức đầy tuyệt vời. Hãy đến LangThang Coffee của chúng tôi để thưởng thức Ưu Đãi này ngay hôm nay!\n</string>
+    <string name="ln_ln_page_4_dash_board_desc_2">Cappuccino kết hợp với bánh sừng bò mặn tạo ra sự kết hợp ngon miệng giữa hương vị ngọt và mặn. Bạn có thể thưởng thức miếng bánh sừng bò mặn giòn tan kèm với một cốc Cappuccino thơm ngon và mát lạnh để tạo ra một trải nghiệm thưởng thức thực phẩm hoàn hảo.\n</string>
+
+    <!-- Fifth page of Dash Board    -->
+    <string name="rl_page_5_dash_board_title">BÁNH NGỌT SAO LẠI KHÔNG ?</string>
+
+
+    <!-- Sixth page of Dash Board    -->
+    <string name="ln_page_6_dash_board_title">VÌ SAO CHÚNG TÔI LÀ NƠI LÍ TƯỞNG CHO BẠN</string>
+    <string name="ln_ln_page_6_dash_board_title_1"><b><u>VỀ CÀ PHÊ</u></b></string>
+    <string name="ln_ln_page_6_dash_board_title_2"><b><u>VỀ MÔI TRƯỜNG</u></b></string>
+    <string name="ln_ln_page_6_dash_board_title_3"><b><u>VỀ GIAO HÀNG</u></b></string>
+    <string name="ln_ln_page_6_dash_board_desc_1">Cà phê tại quán của chúng tôi được pha chế từ những hạt cà phê chọn lọc kỹ càng và rang theo phương pháp truyền thống để đảm bảo hương vị đặc trưng và chất lượng tuyệt vời. Đến với quán cà phê của chúng tôi, bạn sẽ được thưởng thức một tách cà phê đậm đà và thơm ngon nhất.\n</string>
+    <string name="ln_ln_page_6_dash_board_desc_2">Quán của chúng tôi có không gian ấm cúng và thiết kế sang trọng, tạo ra một môi trường thư giãn và đầy cảm hứng cho khách hàng. Bạn sẽ có cơ hội thưởng thức cà phê tuyệt vời trong một không gian thoải mái và đầy hứng khởi. Hãy ghé thăm quán của chúng tôi để tận hưởng không gian đẹp và thoải mái nhất.\n</string>
+    <string name="ln_ln_page_6_dash_board_desc_3">Quán của chúng tôi có không gian ấm cúng và thiết kế sang trọng, tạo ra một môi trường thư giãn và đầy cảm hứng cho khách hàng. Bạn sẽ có cơ hội thưởng thức cà phê tuyệt vời trong một không gian thoải mái và đầy hứng khởi. Hãy ghé thăm quán của chúng tôi để tận hưởng không gian đẹp và thoải mái nhất.\n</string>
+
+    <!-- All For Item -->
+
+
+    <string name="all_choose_size">Size</string>
+    <string name="all_small_size">Nhỏ</string>
+    <string name="all_middle_size">Vừa</string>
+    <string name="all_big_size">Lớn</string>
+    <string name="all_topping">Topping</string>
+    <string name="all_choose_size_compulsory">Chọn 1 loại size</string>
+    <string name="all_choose_topping">Chọn topping</string>
+
+    <string name="item">item</string>
+    <string name="todo">TODO</string>
+    <string name="all_learn_about_item">Tìm hiểu ngay</string>
+
+    <!-- Order -->
+    <string name="tv_order">Đặt hàng</string>
+    <string name="edt_product_name_search">Tìm kiếm tên sản phẩm</string>
+    <string name="tv_detail_item">Chi Tiết Sản Phẩm</string>
+    <string name="cf1">Cà phê đen hoà tan bao ngon, ngon hơn cả người yêu cũ của bạn</string>
+    <string name="tv_other_requirements">Yêu cầu khác</string>
+    <string name="tv_other_requirements_desc">Những yêu cầu khác</string>
+    <string name="edt_note">Thêm ghi chú</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

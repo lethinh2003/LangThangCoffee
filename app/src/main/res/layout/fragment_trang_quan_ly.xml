@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment_menu_tool_bar.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_border_top"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_all_component"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/marginbottom_all_component"
+
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/img_back"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/back_icon"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Back"
+                        android:textColor="@color/dim_gray"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center_horizontal"
+                        android:text="Quản Lý Ứng Dụng"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_navbot_canhan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txt_tienich_canhan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/marginbottom_all_component"
+                        android:text="Đơn hàng"
+                        android:textColor="@color/all_title"
+                        android:textSize="@dimen/textsize_all_bigtitle"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/marginbottom_all_component"
+                        android:background="@drawable/btn_trang_ca_nhan"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_all_component">
+
+                        <ImageView
+                            android:id="@+id/img_ic_lsdh_canhan"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/trangcanhan_iconlsdonhang" />
+
+                        <TextView
+                            android:id="@+id/chip_lsdh_canhan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_medium"
+                            android:text="Danh sách đơn hàng"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txt_taikhoan_canhan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/marginbottom_all_component"
+
+                        android:text="Tài khoản"
+                        android:textColor="@color/all_title"
+                        android:textSize="@dimen/textsize_all_bigtitle"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/marginbottom_all_component"
+                        android:background="@drawable/btn_trang_ca_nhan"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_all_component">
+
+                    <ImageView
+                        android:id="@+id/img_ic_thongtin_canhan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/trangcanhan_iconthongtincanhan" />
+
+                    <TextView
+                        android:id="@+id/chip_thongtin_canhan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/marginbottom_all_component"
+                        android:text="Danh sách tài khoản"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/inter_medium"
+
+                        />
+                    </LinearLayout>
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/marginbottom_all_component"
+                        android:text="Sản phẩm"
+
+                        android:textColor="@color/all_title"
+                        android:textSize="@dimen/textsize_all_bigtitle"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/marginbottom_all_component"
+                        android:background="@drawable/btn_trang_ca_nhan"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_all_component">
+
+                    <ImageView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/trangcanhan_icon_dssanpham" />
+
+                    <TextView
+                        android:id="@+id/chip_danhsach_sanpham"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/inter_medium"
+                        android:text="Danh sách sản phẩm" />
+                    </LinearLayout>
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/marginbottom_all_component"
+                        android:text="Voucher"
+
+                        android:textColor="@color/all_title"
+                        android:textSize="@dimen/textsize_all_bigtitle"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/marginbottom_all_component"
+                        android:background="@drawable/btn_trang_ca_nhan"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_all_component">
+
+                    <ImageView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/trangcanhan_icon_dsvoucher" />
+
+                    <TextView
+                        android:id="@+id/chip_danhsach_voucher"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/inter_medium"
+                        android:text="Danh sách voucher" />
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/txt_hotro_canhan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/marginbottom_all_component"
+                        android:text="Thống kê"
+
+                        android:textColor="@color/all_title"
+                        android:textSize="@dimen/textsize_all_bigtitle"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/marginbottom_all_component"
+                        android:background="@drawable/btn_trang_ca_nhan"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_all_component">
+
+                    <ImageView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/trangcanhan_icon_doanhthu" />
+
+                    <TextView
+                        android:id="@+id/chip_doanhthu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/inter_medium"
+                        android:text="Doanh thu" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</RelativeLayout>
