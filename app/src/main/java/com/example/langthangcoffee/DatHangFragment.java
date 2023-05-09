@@ -39,7 +39,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.langthangcoffee.fragment_menu_tool_bar.MainActivity;
-import com.example.langthangcoffee.fragment_menu_tool_bar.SigninFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -93,9 +92,15 @@ public class DatHangFragment extends Fragment implements View.OnClickListener {
 
         if (mainActivity.getTaiKhoan() != null) {
             DonHang getDonHang = mainActivity.getDonHang();
-            priceButton.setText(String.valueOf(getDonHang.getThanhTien()) + " đ");
-            tvQuantityOrder.setText(String.valueOf(getDonHang.getLichSuOrderList().size()));
-Log.i("DatHang", "Reload");
+            if (getDonHang != null) {
+                priceButton.setText(String.valueOf(getDonHang.getThanhTien()) + " đ");
+                tvQuantityOrder.setText(String.valueOf(getDonHang.getLichSuOrderList().size()));
+
+            } else {
+                priceButton.setText("0 đ");
+                tvQuantityOrder.setText("0");
+            }
+            Log.i("DatHang", "Reload");
         }
 
         item1.setOnClickListener(this);

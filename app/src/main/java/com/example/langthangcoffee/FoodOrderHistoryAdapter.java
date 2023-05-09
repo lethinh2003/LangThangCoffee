@@ -24,6 +24,12 @@ public class FoodOrderHistoryAdapter extends RecyclerView.Adapter<FoodOrderHisto
         this.xacNhanDatHangFragment = xacNhanDatHangFragment;
 
     }
+    public void updateLichSuOrderList(List<LichSuOrder> lichSuOrderList) {
+        mLichSuOrderList.clear();
+        mLichSuOrderList.addAll(lichSuOrderList);
+        this.notifyDataSetChanged();
+
+    }
 
     @NonNull
     @Override

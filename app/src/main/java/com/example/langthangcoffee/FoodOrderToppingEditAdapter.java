@@ -50,13 +50,14 @@ public class FoodOrderToppingEditAdapter extends RecyclerView.Adapter<FoodOrderT
             return;
         }
         foodOrderToppingListCuaOrder = lichSuOrder.getFoodOrderToppingList();
-        for (int i = 0; i < foodOrderToppingListCuaOrder.size(); i++) {
-            if (foodOrderToppingListCuaOrder.get(i).getTenTopping().equals(mListFoodOrderTopping.get(i).getTenTopping())) {
 
-                itemStateArray.put(i, true);
-            } else {
-                itemStateArray.put(i, false);
+        for (int i = 0; i < mListFoodOrderTopping.size(); i++) {
+            for (int j = 0; j < foodOrderToppingListCuaOrder.size(); j++) {
+                if (foodOrderToppingListCuaOrder.get(j).getTenTopping().equals(mListFoodOrderTopping.get(i).getTenTopping()) && !itemStateArray.get(i, false)) {
+                    itemStateArray.put(i, true);
+                }
             }
+
         }
 
         holder.tvToppingName.setText(foodOrderTopping.getTenTopping());

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +38,8 @@ import java.util.List;
 public class XacNhanDatHangFragment extends Fragment {
     MainActivity mainActivity;
     LinearLayout lnGiamGia;
-    Button btnThayDoiDiaChi;
+    ImageView imgBack;
+    Button btnThayDoiDiaChi, btnConfirmOrder, btnAddOrder;
     private RecyclerView recyclerView;
     private FoodOrderHistoryAdapter foodOrderHistoryAdapter;
     GridLayoutManager gridLayoutManager;
@@ -52,11 +54,14 @@ public class XacNhanDatHangFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         xacNhanDatHangFragment = this;
         ViewGroup v = (ViewGroup) inflater.inflate(R.layout.fragment_trang_xac_nhan_order, container, false);
+        imgBack = v.findViewById(R.id.img_back);
+        btnAddOrder = v.findViewById(R.id.btn_add_item);
         tvInfoShip = v.findViewById(R.id.tv_info_ship_order);
         tvItemThanhTien = v.findViewById(R.id.tv_item_thanhtien);
         tvItemPhiGiaoHang = v.findViewById(R.id.tv_item_phigiaohang);
         tvItemThanhToan = v.findViewById(R.id.tv_item_thanhtoan);
         tvVoucher = v.findViewById(R.id.tv_voucher_donhang);
+        btnConfirmOrder = v.findViewById(R.id.btn_confirm_order);
         mainActivity = (MainActivity) getActivity();
         donHang = mainActivity.getDonHang();
         if (donHang != null) {
@@ -64,7 +69,6 @@ public class XacNhanDatHangFragment extends Fragment {
             donHang.setSoTienThanhToan(donHang.getThanhTien() + donHang.getPhiGiaoHang());
         }
         updateDonHangView();
-
         recyclerView = v.findViewById(R.id.rcv_order_history);
         gridLayoutManager = new GridLayoutManager(getContext(), 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -72,17 +76,109 @@ public class XacNhanDatHangFragment extends Fragment {
         recyclerView.setAdapter(foodOrderHistoryAdapter);
         getFoodOrderHistory();
 
+
+        btnConfirmOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateTinhTrangDonHang();
+
+            }
+        });
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStack();
+            }
+        });
+        btnAddOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStack();
+            }
+        });
+
         return v;
     }
+
+    private void updateTinhTrangDonHang() {
+        try {
+            String url = "http://10.0.2.2/server_langthangcoffee/donhang/update-tinh-trang";
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage("Loading...");
+            progressDialog.show();
+            JSONObject jsonBody = new JSONObject();
+            jsonBody.put("maDonHang", donHang.getMaDonHang());
+            // Update tình trạng đơn hàng từ khởi tạo -> chờ xác nhận
+            jsonBody.put("tinhTrang", 1);
+            final String requestBody = jsonBody.toString();
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject obj = new JSONObject(response);
+                                Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                // Remove đơn hàng hiện tại
+                                donHang = null;
+                                // Xóa list lịch sử order
+                                lichSuOrderList.clear();
+                                foodOrderHistoryAdapter.notifyDataSetChanged();
+                                // Tạo đơn hàng trống
+                                mainActivity.getDonHangMoiNhat();
+                                // Quay lại trang đặt hàng
+                                imgBack.performClick();
+
+
+                                progressDialog.dismiss();
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                progressDialog.dismiss();
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                        }
+                    }) {
+
+                @Override
+                public String getBodyContentType() {
+                    return "application/json; charset=utf-8";
+                }
+
+                @Override
+                public byte[] getBody() throws AuthFailureError {
+                    try {
+                        return requestBody == null ? null : requestBody.getBytes("utf-8");
+                    } catch (UnsupportedEncodingException uee) {
+                        VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
+                        return null;
+                    }
+                }
+            };
+            RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+            requestQueue.add(stringRequest);
+        } catch (JSONException err) {
+            err.printStackTrace();
+        }
+    }
+
+
     public void deleteLichSuOrderList(int maLichSuOrder) {
         lichSuOrderList.removeIf(item -> item.getMaLichSuOrder() == maLichSuOrder);
         foodOrderHistoryAdapter.notifyDataSetChanged();
     }
+
     public void updateLichSuOrderList(List<LichSuOrder> lichSuOrderList2) {
-        lichSuOrderList.clear();
-        lichSuOrderList.addAll(lichSuOrderList2);
-        foodOrderHistoryAdapter.notifyDataSetChanged();
+        this.lichSuOrderList = lichSuOrderList2;
+        foodOrderHistoryAdapter = new FoodOrderHistoryAdapter(lichSuOrderList, xacNhanDatHangFragment);
+        recyclerView.setAdapter(foodOrderHistoryAdapter);
     }
+
     public void updateDonHangView() {
         if (donHang != null) {
             tvInfoShip.setText(donHang.getDiaChiGiaoHang());
@@ -93,10 +189,7 @@ public class XacNhanDatHangFragment extends Fragment {
         }
 
     }
-    // Cập nhật giá tiền khi chọn topping
-    public void onUpdateLichSuOrder() {
 
-    }
 
     private void getFoodOrderHistory() {
         try {

@@ -33,7 +33,6 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -189,7 +188,7 @@ public class BottomSheetChinhSuaOrderFragment extends BottomSheetDialogFragment 
     private void updateFoodOrderDetail() {
         try {
             String url = "http://10.0.2.2/server_langthangcoffee/donhang/update-lich-su-order";
-
+            lichSuOrder.setGhiChu(edtNote.getText().toString());
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("Loading...");
             progressDialog.show();

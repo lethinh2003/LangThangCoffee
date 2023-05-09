@@ -233,9 +233,10 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
 
     }
 
-    private void getDonHangMoiNhat() {
+    public void getDonHangMoiNhat() {
         try {
             String url = "http://10.0.2.2/server_langthangcoffee/donhang/moinhat";
+            donHang = null;
 
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setMessage("Loading...");
