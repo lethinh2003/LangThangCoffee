@@ -36,6 +36,7 @@ import com.example.langthangcoffee.LichSuOrder;
 import com.example.langthangcoffee.R;
 import com.example.langthangcoffee.SimpleItem;
 import com.example.langthangcoffee.TaiKhoan;
+import com.example.langthangcoffee.TrangCaNhanFragment;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
@@ -157,8 +158,8 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
             DashBoardFragment dashBoardFragment = new DashBoardFragment();
             loadFragment(dashBoardFragment);
         } else if (position == POS_ACCOUNT) {
-            AccountFragment accountFragment = new AccountFragment();
-            loadFragment(accountFragment);
+            TrangCaNhanFragment trangCaNhanFragment = new TrangCaNhanFragment();
+            loadFragment(trangCaNhanFragment);
         } else if (position == POS_CART) {
             DatHangFragment datHangFragment = new DatHangFragment();
             loadFragment(datHangFragment);

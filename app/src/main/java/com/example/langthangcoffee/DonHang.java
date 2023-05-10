@@ -1,9 +1,11 @@
 package com.example.langthangcoffee;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DonHang {
+public class DonHang implements Serializable {
     private int maDonHang;
     private String diaChiGiaoHang;
     private int thanhTien;
@@ -15,12 +17,39 @@ public class DonHang {
     private int tinhTrang;
     private List<LichSuOrder> lichSuOrderList = new ArrayList<LichSuOrder>();
     private Voucher voucher;
+    private String thoiGianTao;
+    private String thoiGianCapNhat;
+    private String thoiGianDatHang;
 
     public DonHang() {
 
     }
 
     ;
+
+    public void setThoiGianTao(String thoiGianTao) {
+        this.thoiGianTao = thoiGianTao;
+    }
+
+    public void setThoiGianCapNhat(String thoiGianCapNhat) {
+        this.thoiGianCapNhat = thoiGianCapNhat;
+    }
+
+    public void setThoiGianDatHang(String thoiGianDatHang) {
+        this.thoiGianDatHang = thoiGianDatHang;
+    }
+
+    public String getThoiGianTao() {
+        return thoiGianTao;
+    }
+
+    public String getThoiGianCapNhat() {
+        return thoiGianCapNhat;
+    }
+
+    public String getThoiGianDatHang() {
+        return thoiGianDatHang;
+    }
 
     public void setVoucher(Voucher voucher) {
         this.voucher = voucher;

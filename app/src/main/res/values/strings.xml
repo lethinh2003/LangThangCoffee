@@ -18,7 +18,7 @@
     <string name="tv_new_register">Tạo tài khoản mới</string>
 
     <!-- First page of Dash Board-->
-    <string name="ln_page_1_dash_board_title">#Welcom</string>
+    <string name="ln_page_1_dash_board_title">#Welcome to</string>
     <string name="ln_page_1_dash_board_btn">Trải nghiệm</string>
     <string name="ln_page_1_dash_board_slogan">Không Chỉ Là Coffee \n Chúng Tôi Bán Cả Sự Trải Nghiệm</string>
     <string name="ln_page_1_dash_board_space">Không gian</string>

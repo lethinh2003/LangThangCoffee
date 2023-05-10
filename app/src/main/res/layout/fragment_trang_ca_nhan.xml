@@ -75,6 +75,7 @@
                         android:textStyle="bold" />
 
                     <LinearLayout
+                        android:id="@+id/ln_lich_su_don_hang"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"

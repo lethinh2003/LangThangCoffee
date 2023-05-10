@@ -8,13 +8,17 @@
 
     <TextView
         android:id="@+id/tv_title_page_5_dash_board"
-        android:gravity="center"
-        android:textSize="50sp"
-        android:textColor="@color/deep_orange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:text="@string/rl_page_5_dash_board_title" />
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="@string/rl_page_5_dash_board_title"
+        android:textColor="@color/deep_orange"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="32dp" />
 
 
     <androidx.recyclerview.widget.RecyclerView
