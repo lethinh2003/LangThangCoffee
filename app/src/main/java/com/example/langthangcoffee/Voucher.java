@@ -6,11 +6,38 @@ public class Voucher {
     private String maVoucher;
     private TaiKhoan taiKhoan;
     private LoaiVoucher loaiVoucher;
-    private LocalDateTime thoiGianTao;
-    private LocalDateTime thoiGianHetHan;
+    private String thoiGianTao;
+    private String thoiGianHetHan;
+    private String sdtTaiKhoan;
+    private int maLoaiVoucher;
+    private int suDung;
 
     public Voucher() {
 
+    }
+
+    public void setMaLoaiVoucher(int maLoaiVoucher) {
+        this.maLoaiVoucher = maLoaiVoucher;
+    }
+
+    public void setSdtTaiKhoan(String sdtTaiKhoan) {
+        this.sdtTaiKhoan = sdtTaiKhoan;
+    }
+
+    public void setSuDung(int suDung) {
+        this.suDung = suDung;
+    }
+
+    public String getSdtTaiKhoan() {
+        return sdtTaiKhoan;
+    }
+
+    public int getMaLoaiVoucher() {
+        return maLoaiVoucher;
+    }
+
+    public int getSuDung() {
+        return suDung;
     }
 
     public void setLoaiVoucher(LoaiVoucher loaiVoucher) {
@@ -25,11 +52,11 @@ public class Voucher {
         this.taiKhoan = taiKhoan;
     }
 
-    public void setThoiGianHetHan(LocalDateTime thoiGianHetHan) {
+    public void setThoiGianHetHan(String thoiGianHetHan) {
         this.thoiGianHetHan = thoiGianHetHan;
     }
 
-    public void setThoiGianTao(LocalDateTime thoiGianTao) {
+    public void setThoiGianTao(String thoiGianTao) {
         this.thoiGianTao = thoiGianTao;
     }
 
@@ -45,11 +72,11 @@ public class Voucher {
         return taiKhoan;
     }
 
-    public LocalDateTime getThoiGianHetHan() {
+    public String getThoiGianHetHan() {
         return thoiGianHetHan;
     }
 
-    public LocalDateTime getThoiGianTao() {
+    public String getThoiGianTao() {
         return thoiGianTao;
     }
 }

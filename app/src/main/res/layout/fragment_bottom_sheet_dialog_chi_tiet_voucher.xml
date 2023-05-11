@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_border_top">
+
+    <RelativeLayout
+        android:id="@+id/rl_navigation_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/background_border_top">
+
+        <ImageView
+            android:id="@+id/img_close_bottom_dialog"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/ic_close"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Chi Tiết Voucher"
+            android:textColor="@color/deep_black"
+            android:textSize="16dp" />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_below="@id/rl_navigation_top"
+        android:layout_marginTop="20dp"
+
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/img_voucher"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_gravity="center_horizontal"
+               />
+            <TextView
+                android:id="@+id/tv_mavoucher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="VOUCHER 001"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tv_saochep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="Sao chép"
+                android:textColor="#1540EC"
+                android:layout_gravity="center_horizontal"
+                android:textSize="15dp"
+        />
+            <TextView
+                android:id="@+id/tv_thoigian_hethan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Hết hạn trong 2 ngày nữa"
+                android:fontFamily="@font/inter_medium"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#F68422"
+                android:textSize="15dp" />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Mô tả voucher"
+                android:textColor="@color/black"
+                android:layout_gravity="left"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+            <TextView
+android:id="@+id/tv_mota_voucher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="Giảm giá 50% tổng tiền"
+                android:textColor="@color/black"
+                android:layout_gravity="left"
+                android:textSize="15dp"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

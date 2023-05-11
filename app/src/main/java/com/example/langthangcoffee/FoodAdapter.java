@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder>{
@@ -27,12 +29,13 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull FoodViewHolder holder, int position) {
-        Food  food = mListFood.get(position);
+        Food food = mListFood.get(position);
         if (food == null)
         {
             return;
         }
         holder.imageView.setImageResource(food.getImage());
+
         holder.tvName.setText(food.getName());
         holder.tvCost.setText(food.getPrice());
     }

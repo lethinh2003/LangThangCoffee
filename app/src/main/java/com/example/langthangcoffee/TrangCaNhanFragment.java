@@ -16,7 +16,7 @@ import com.example.langthangcoffee.fragment_menu_tool_bar.MainActivity;
 public class TrangCaNhanFragment extends Fragment {
 
     ImageView imgBack;
-    LinearLayout lnLichSuDonHang, lnThongTinCaNhan, lnThayDoiMatKhau, lnDangXuat, lnLienHe;
+    LinearLayout lnLichSuDonHang, lnThongTinCaNhan, lnThayDoiMatKhau, lnDangXuat, lnLienHe, lnUuDai;
     MainActivity mainActivity;
     @Nullable
     @Override
@@ -26,6 +26,7 @@ public class TrangCaNhanFragment extends Fragment {
         lnLichSuDonHang = v.findViewById(R.id.ln_lich_su_don_hang);
         lnThongTinCaNhan = v.findViewById(R.id.ln_thongtincanhan);
         lnThayDoiMatKhau = v.findViewById(R.id.ln_thaydoimatkhau);
+        lnUuDai = v.findViewById(R.id.ln_danhsachuudai);
         lnDangXuat = v.findViewById(R.id.ln_dangxuat);
         lnLienHe = v.findViewById(R.id.ln_lienhe);
         mainActivity = (MainActivity)getActivity();
@@ -40,6 +41,13 @@ public class TrangCaNhanFragment extends Fragment {
             public void onClick(View v) {
                 LichSuBillCaNhanFragment lichSuBillCaNhanFragment = new LichSuBillCaNhanFragment();
                 mainActivity.loadFragment(lichSuBillCaNhanFragment);
+            }
+        });
+        lnUuDai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TrangVoucherFragment trangVoucherFragment = new TrangVoucherFragment();
+                mainActivity.loadFragment(trangVoucherFragment);
             }
         });
         lnThongTinCaNhan.setOnClickListener(new View.OnClickListener() {

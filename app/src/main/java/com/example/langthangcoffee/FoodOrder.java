@@ -5,6 +5,7 @@ public class FoodOrder {
     public static final int TYPE_SODA = 2;
     public static final int TYPE_TRASUA = 3;
     public static final int TYPE_SWEETCAKE = 4;
+private String hinhAnh;
 
     private int image;
     private String name;
@@ -15,6 +16,14 @@ public class FoodOrder {
     private String desc;
 
     public FoodOrder() {
+    }
+
+    public void setHinhAnh(String hinhAnh) {
+        this.hinhAnh = hinhAnh;
+    }
+
+    public String getHinhAnh() {
+        return hinhAnh;
     }
 
     public FoodOrder(int image, String name, int price, int type, boolean favorite, String desc) {

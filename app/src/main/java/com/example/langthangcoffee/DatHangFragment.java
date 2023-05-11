@@ -270,6 +270,7 @@ public class DatHangFragment extends Fragment implements View.OnClickListener {
                                 FoodOrder foodOrder = new FoodOrder();
                                 int imageID = getActivity().getResources().getIdentifier(jsonObject.getString("HinhAnh"), "drawable", getActivity().getPackageName());
                                 foodOrder.setImage(imageID);
+                                foodOrder.setHinhAnh(jsonObject.getString("HinhAnh"));
                                 foodOrder.setDesc(jsonObject.getString("MoTa"));
                                 foodOrder.setName(jsonObject.getString("TenSanPham"));
                                 foodOrder.setID(jsonObject.getInt("MaSanPham"));

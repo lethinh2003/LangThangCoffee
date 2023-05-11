@@ -27,6 +27,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.langthangcoffee.fragment_menu_tool_bar.MainActivity;
 import com.example.langthangcoffee.fragment_menu_tool_bar.SigninFragment;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -333,13 +334,18 @@ public class DatHangChiTietFragment extends Fragment implements FoodOrderTopping
                                     FoodOrder foodOrder = new FoodOrder();
                                     int imageID = getActivity().getResources().getIdentifier(jsonObject.getString("HinhAnh"), "drawable", getActivity().getPackageName());
                                     foodOrder.setImage(imageID);
+                                    foodOrder.setHinhAnh(jsonObject.getString("HinhAnh"));
                                     foodOrder.setDesc(jsonObject.getString("MoTa"));
                                     foodOrder.setName(jsonObject.getString("TenSanPham"));
                                     foodOrder.setID(jsonObject.getInt("MaSanPham"));
                                     foodOrder.setType(jsonObject.getInt("MaDanhMuc"));
                                     foodOrder.setPrice(jsonObject.getInt("GiaTien"));
 
-                                    imgFoodDetail.setImageResource(foodOrder.getImage());
+                                    Picasso.get()
+                                            .load(foodOrder.getHinhAnh())
+                                            .fit()
+                                            .into(imgFoodDetail);
+
                                     tvFoodDetailName.setText(foodOrder.getName());
                                     tvFoodDetailDesc.setText(foodOrder.getDesc());
                                     tvFoodDetailPrice.setText(String.valueOf(foodOrder.getPrice()) + " đ");

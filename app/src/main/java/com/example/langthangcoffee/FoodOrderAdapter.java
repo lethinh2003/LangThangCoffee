@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.langthangcoffee.fragment_menu_tool_bar.MainActivity;
 import com.example.langthangcoffee.fragment_menu_tool_bar.SigninFragment;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -41,7 +42,11 @@ public class FoodOrderAdapter extends RecyclerView.Adapter<FoodOrderAdapter.Food
         if (foodOrder == null) {
             return;
         }
-        holder.imageView.setImageResource(foodOrder.getImage());
+        Picasso.get()
+                .load(foodOrder.getHinhAnh())
+                .fit()
+                .into(holder.imageView);
+
         holder.tvName.setText(foodOrder.getName());
         holder.tvPrice.setText(String.valueOf(foodOrder.getPrice()) + " đ");
         holder.tvName.setOnClickListener(new View.OnClickListener() {
