@@ -2,14 +2,20 @@ package com.example.langthangcoffee.fragment_menu_tool_bar;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -33,10 +39,16 @@ import com.example.langthangcoffee.DrawerAdapter;
 import com.example.langthangcoffee.DrawerItem;
 import com.example.langthangcoffee.FoodOrderTopping;
 import com.example.langthangcoffee.LichSuOrder;
+
 import com.example.langthangcoffee.R;
 import com.example.langthangcoffee.SimpleItem;
 import com.example.langthangcoffee.TaiKhoan;
 import com.example.langthangcoffee.TrangCaNhanFragment;
+import com.example.langthangcoffee.TrangQuanLyFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
@@ -58,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
     public static int POS_ABOUT_US;
     public static int POS_SIGNIN;
     public static int POS_LOGOUT;
-
+    public static int POS_ADMIN;
     private String[] screenTitles;
     private Drawable[] screenIcons;
 
@@ -77,6 +89,33 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
     private DrawerAdapter drawerAdapter;
 
 
+
+    // Declare the launcher at the top of your Activity/Fragment:
+    private final ActivityResultLauncher<String> requestPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    // FCM SDK (and your app) can post notifications.
+                } else {
+                    // TODO: Inform user that that your app will not show notifications.
+                }
+            });
+    private void askNotificationPermission() {
+        // This is only necessary for API level >= 33 (TIRAMISU)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) ==
+                    PackageManager.PERMISSION_GRANTED) {
+                // FCM SDK (and your app) can post notifications.
+            } else if (shouldShowRequestPermissionRationale(android.Manifest.permission.POST_NOTIFICATIONS)) {
+                // TODO: display an educational UI explaining to the user the features that will be enabled
+                //       by them granting the POST_NOTIFICATION permission. This UI should provide the user
+                //       "OK" and "No thanks" buttons. If the user selects "OK," directly request the permission.
+                //       If the user selects "No thanks," allow the user to continue without notifications.
+            } else {
+                // Directly ask for the permission
+                requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS);
+            }
+        }
+    }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         drawerNavigation();
 
         drawerAdapter.setSelected(POS_DASHBOARD);
+
 
 
     }
@@ -121,10 +161,11 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
             POS_ACCOUNT = 2;
             POS_CART = 3;
             POS_SIGNIN = 4;
+            POS_ADMIN = 5;
 
             screenIcons = loadScreenIcons();
             screenTitles = loadScreenTitles();
-            drawerAdapter = new DrawerAdapter(Arrays.asList(createItemFor(POS_CLOSE), createItemFor(POS_DASHBOARD).setChecked(true), createItemFor(POS_ACCOUNT), createItemFor(POS_CART), createItemFor(POS_SIGNIN)));
+            drawerAdapter = new DrawerAdapter(Arrays.asList(createItemFor(POS_CLOSE), createItemFor(POS_DASHBOARD).setChecked(true), createItemFor(POS_ACCOUNT), createItemFor(POS_CART), createItemFor(POS_SIGNIN), createItemFor(POS_ADMIN)));
 
             drawerAdapter.setListener(this);
 
@@ -166,6 +207,9 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         } else if (position == POS_SIGNIN) {
             SigninFragment signinFragment = new SigninFragment();
             loadFragment(signinFragment);
+        } else if (position == POS_ADMIN) {
+            TrangQuanLyFragment trangQuanLyFragment = new TrangQuanLyFragment();
+            loadFragment(trangQuanLyFragment);
         }
     }
 
@@ -230,9 +274,13 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
 
     public void setTaiKhoan(TaiKhoan taiKhoan) {
         this.taiKhoan = taiKhoan;
-        getDonHangMoiNhat();
-
+        if (taiKhoan != null) {
+            askNotificationPermission();
+            getDonHangMoiNhat();
+            getTokenNotification();
+        }
     }
+
 
     public void getDonHangMoiNhat() {
         try {
@@ -349,5 +397,102 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         }
     }
 
+
+    void getTokenNotification() {
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w("error", "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        String token = task.getResult();
+
+
+                        // Log and toast
+                        Log.i("token", token);
+                        updateTokenNotificationDatabase(token);
+                    }
+                });
+
+    }
+
+    void updateTokenNotificationDatabase(String token) {
+
+        try {
+            String url = "http://10.0.2.2/server_langthangcoffee/taikhoan/update-notification-token";
+
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("Loading...");
+            progressDialog.show();
+            JSONObject jsonBody = new JSONObject();
+            jsonBody.put("SDTTaiKhoan", taiKhoan.getSdtTaiKhoan());
+            jsonBody.put("Token", token);
+            final String requestBody = jsonBody.toString();
+            //creating a string request to send request to the url
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            //hiding the progressbar after completion
+
+                            try {
+                                //getting the whole json object from the response
+                                JSONObject jsonObject = new JSONObject(response);
+                                //we have the array named data  inside the object
+                                //so here we are getting that json array
+
+                                taiKhoan.setNotificationToken(token);
+                                Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+
+
+                                progressDialog.dismiss();
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                progressDialog.dismiss();
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            //displaying the error in toast if occur
+                            Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                        }
+                    }) {
+
+                @Override
+                public String getBodyContentType() {
+                    return "application/json; charset=utf-8";
+                }
+
+                @Override
+                public byte[] getBody() throws AuthFailureError {
+                    try {
+                        return requestBody == null ? null : requestBody.getBytes("utf-8");
+                    } catch (UnsupportedEncodingException uee) {
+                        VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
+                        return null;
+                    }
+                }
+
+
+            };
+
+            //creating a request queue
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            //adding the string request to request queue
+            requestQueue.add(stringRequest);
+
+        } catch (JSONException err) {
+            err.printStackTrace();
+        }
+
+    }
 
 }

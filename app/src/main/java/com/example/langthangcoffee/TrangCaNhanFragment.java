@@ -16,7 +16,7 @@ import com.example.langthangcoffee.fragment_menu_tool_bar.MainActivity;
 public class TrangCaNhanFragment extends Fragment {
 
     ImageView imgBack;
-    LinearLayout lnLichSuDonHang;
+    LinearLayout lnLichSuDonHang, lnThongTinCaNhan, lnThayDoiMatKhau, lnDangXuat, lnLienHe;
     MainActivity mainActivity;
     @Nullable
     @Override
@@ -24,6 +24,10 @@ public class TrangCaNhanFragment extends Fragment {
         ViewGroup v = (ViewGroup) inflater.inflate(R.layout.fragment_trang_ca_nhan, container, false);
         imgBack =  v.findViewById(R.id.img_back);
         lnLichSuDonHang = v.findViewById(R.id.ln_lich_su_don_hang);
+        lnThongTinCaNhan = v.findViewById(R.id.ln_thongtincanhan);
+        lnThayDoiMatKhau = v.findViewById(R.id.ln_thaydoimatkhau);
+        lnDangXuat = v.findViewById(R.id.ln_dangxuat);
+        lnLienHe = v.findViewById(R.id.ln_lienhe);
         mainActivity = (MainActivity)getActivity();
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,7 +42,34 @@ public class TrangCaNhanFragment extends Fragment {
                 mainActivity.loadFragment(lichSuBillCaNhanFragment);
             }
         });
-
+        lnThongTinCaNhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThongTinCaNhanFragment thongTinCaNhanFragment = new ThongTinCaNhanFragment();
+                mainActivity.loadFragment(thongTinCaNhanFragment);
+            }
+        });
+        lnThayDoiMatKhau.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThayDoiMatKhauFragment thayDoiMatKhauFragment = new ThayDoiMatKhauFragment();
+                mainActivity.loadFragment(thayDoiMatKhauFragment);
+            }
+        });
+        lnDangXuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DangXuatFragment dangXuatFragment = new DangXuatFragment();
+                mainActivity.loadFragment(dangXuatFragment);
+            }
+        });
+        lnLienHe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LienHeFragment lienHeFragment = new LienHeFragment();
+                mainActivity.loadFragment(lienHeFragment);
+            }
+        });
         return v;
     }
 

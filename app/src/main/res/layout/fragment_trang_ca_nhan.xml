@@ -115,6 +115,7 @@
                         android:textStyle="bold" />
 
                     <LinearLayout
+                        android:id="@+id/ln_thongtincanhan"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
@@ -139,7 +140,9 @@
                             />
                     </LinearLayout>
 
+
                     <LinearLayout
+                        android:id="@+id/ln_thaydoimatkhau"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
@@ -158,7 +161,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_medium"
-                            android:text="Thay đổi thông tin"
+                            android:text="Thay đổi mật khẩu"
 
                             android:textColor="@color/black"
 
@@ -166,8 +169,8 @@
 
                     </LinearLayout>
 
-
                     <LinearLayout
+                        android:id="@+id/ln_dangxuat"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
@@ -205,6 +208,7 @@
                         android:textSize="@dimen/textsize_all_bigtitle"
                         android:textStyle="bold" />
                     <LinearLayout
+                        android:id="@+id/ln_lienhe"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"

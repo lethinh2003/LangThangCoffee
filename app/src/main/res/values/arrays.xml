@@ -14,6 +14,7 @@
         <item>Tài khoản</item>
         <item>Đặt hàng</item>
         <item>Đăng xuất</item>
+        <item>Admin Panel</item>
     </string-array>
 
     <array name="ld_activityScreenIcons">
@@ -27,6 +28,7 @@
         <item>@drawable/ic_dash_board</item>
         <item>@drawable/ic_profile</item>
         <item>@drawable/ic_cart</item>
+        <item>@drawable/ic_sign_in</item>
         <item>@drawable/ic_sign_in</item>
     </array>
 

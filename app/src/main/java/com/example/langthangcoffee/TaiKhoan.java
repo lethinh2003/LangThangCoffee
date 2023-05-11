@@ -6,11 +6,29 @@ public class TaiKhoan {
     private String ho;
     private  String ten;
     private String diaChiGiaoHang;
+    private String tenQuyenHan;
+    private String notificationToken;
     private int maQuyenHan;
 
     public TaiKhoan(){
 
     }
+
+    public void setNotificationToken(String notificationToken) {
+        this.notificationToken = notificationToken;
+    }
+
+    public String getNotificationToken() {
+        return notificationToken;
+    }
+
+    public void setTenQuyenHan(String tenQuyenHan) {
+        this.tenQuyenHan = tenQuyenHan;
+    }
+    public String getTenQuyenHan() {
+        return tenQuyenHan;
+    }
+
     public void setSdtTaiKhoan(String sdtTaiKhoan) {
         this.sdtTaiKhoan = sdtTaiKhoan;
     }

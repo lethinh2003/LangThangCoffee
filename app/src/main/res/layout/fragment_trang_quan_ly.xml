@@ -56,7 +56,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/ll_navbot_canhan"
+                    android:id="@+id/ln_danhsachvoucher"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -74,6 +74,7 @@
                         android:textStyle="bold" />
 
                     <LinearLayout
+                        android:id="@+id/ln_danhsachdonhang"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
@@ -109,6 +110,7 @@
                         android:textSize="@dimen/textsize_all_bigtitle"
                         android:textStyle="bold" />
                     <LinearLayout
+                        android:id="@+id/ln_danhsachtaikhoan"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
@@ -146,6 +148,7 @@
                         android:textSize="@dimen/textsize_all_bigtitle"
                         android:textStyle="bold" />
                     <LinearLayout
+                        android:id="@+id/ln_danhsachsanpham"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
@@ -214,6 +217,7 @@
                         android:textSize="@dimen/textsize_all_bigtitle"
                         android:textStyle="bold" />
                     <LinearLayout
+                        android:id="@+id/ln_doanhthu"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
