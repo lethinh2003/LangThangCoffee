@@ -18,11 +18,14 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.langthangcoffee.fragment_menu_tool_bar.MainActivity;
@@ -38,7 +41,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatHangChiTietFragment extends Fragment implements FoodOrderToppingAdapter.EventListener {
-    private String url = "http://10.0.2.2/server_langthangcoffee/sanpham/chitiet";
     private List<FoodOrderSize> listFoodOrderSize = new ArrayList<>();
     private List<FoodOrderTopping> listFoodOrderTopping = new ArrayList<>();
     private int maSanPham = 0;
@@ -132,8 +134,6 @@ public class DatHangChiTietFragment extends Fragment implements FoodOrderTopping
                     int thanhTien = lichSuOrder.getSoLuong() * (lichSuOrder.getGiaTienKichThuoc() + lichSuOrder.getGiaTienTopping());
                     lichSuOrder.setThanhTien(thanhTien);
                     btnPriceDetail.setText(String.valueOf(lichSuOrder.getThanhTien()) + " đ");
-
-
                 }
             });
             btnSubtractFood.setOnClickListener(new View.OnClickListener() {
@@ -179,7 +179,7 @@ public class DatHangChiTietFragment extends Fragment implements FoodOrderTopping
 
     private void themLichSuOrderDatabase() {
         try {
-            String url = "http://10.0.2.2/server_langthangcoffee/donhang/tao-lich-su-order";
+            String url =  getString(R.string.endpoint_server) + "/donhang/tao-lich-su-order";
             DonHang getDonHang = mainActivity.getDonHang();
             getDonHang.setThanhTien(getDonHang.getThanhTien() + lichSuOrder.getThanhTien());
 
@@ -215,9 +215,7 @@ public class DatHangChiTietFragment extends Fragment implements FoodOrderTopping
                             //hiding the progressbar after completion
                             try {
                                 JSONObject jsonObject = new JSONObject(response);
-
                                 Toast.makeText(getActivity(), "Order thành công", Toast.LENGTH_SHORT).show();
-
                                 // Thêm lịch sử order vào đơn hàng
                                 lichSuOrder.setMaLichSuOrder(jsonObject.getInt("data"));
                                 List<LichSuOrder> lichSuOrderList = getDonHang.getLichSuOrderList();
@@ -236,8 +234,20 @@ public class DatHangChiTietFragment extends Fragment implements FoodOrderTopping
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //displaying the error in toast if occur
-                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            NetworkResponse response = error.networkResponse;
+                            if (error instanceof ServerError && response != null) {
+                                try {
+                                    String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                    JSONObject obj = new JSONObject(res);
+                                    Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                } catch (UnsupportedEncodingException e1) {
+                                    e1.printStackTrace();
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+
+
                             progressDialog.dismiss();
                         }
                     }) {
@@ -291,6 +301,8 @@ public class DatHangChiTietFragment extends Fragment implements FoodOrderTopping
 
     private void getFoodOrderDetail() {
         try {
+            String url = getString(R.string.endpoint_server) + "/sanpham/chitiet";
+
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("Loading...");
             progressDialog.show();
@@ -385,8 +397,20 @@ public class DatHangChiTietFragment extends Fragment implements FoodOrderTopping
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //displaying the error in toast if occur
-                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            NetworkResponse response = error.networkResponse;
+                            if (error instanceof ServerError && response != null) {
+                                try {
+                                    String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                    JSONObject obj = new JSONObject(res);
+                                    Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                } catch (UnsupportedEncodingException e1) {
+                                    e1.printStackTrace();
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+
+
                             progressDialog.dismiss();
                         }
                     }) {

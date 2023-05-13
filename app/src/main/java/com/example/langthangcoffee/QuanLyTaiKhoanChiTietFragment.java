@@ -257,7 +257,7 @@ public class QuanLyTaiKhoanChiTietFragment extends Fragment  {
     }
     private void capNhatTaiKhoan() {
         try {
-            String url = "http://10.0.2.2/server_langthangcoffee/admin/taikhoan/cap-nhat";
+            String url = getString(R.string.endpoint_server) + "/admin/taikhoan/cap-nhat";
 
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("Loading...");
@@ -294,8 +294,20 @@ public class QuanLyTaiKhoanChiTietFragment extends Fragment  {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //displaying the error in toast if occur
-                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            NetworkResponse response = error.networkResponse;
+                            if (error instanceof ServerError && response != null) {
+                                try {
+                                    String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                    JSONObject obj = new JSONObject(res);
+                                    Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                } catch (UnsupportedEncodingException e1) {
+                                    e1.printStackTrace();
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+
+
                             progressDialog.dismiss();
                         }
                     }) {
@@ -330,7 +342,7 @@ public class QuanLyTaiKhoanChiTietFragment extends Fragment  {
 
     private void xoaTaiKhoan() {
         try {
-            String url = "http://10.0.2.2/server_langthangcoffee/admin/taikhoan/xoa-tai-khoan";
+            String url = getString(R.string.endpoint_server) + "/admin/taikhoan/xoa-tai-khoan";
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("Loading...");
             progressDialog.show();
@@ -361,8 +373,20 @@ public class QuanLyTaiKhoanChiTietFragment extends Fragment  {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //displaying the error in toast if occur
-                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            NetworkResponse response = error.networkResponse;
+                            if (error instanceof ServerError && response != null) {
+                                try {
+                                    String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                    JSONObject obj = new JSONObject(res);
+                                    Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                } catch (UnsupportedEncodingException e1) {
+                                    e1.printStackTrace();
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+
+
                             progressDialog.dismiss();
                         }
                     }) {

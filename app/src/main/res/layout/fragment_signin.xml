@@ -154,6 +154,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
+                        android:id="@+id/img_showpassword"
                         android:src="@drawable/showpassword"
                         app:layout_flexBasisPercent="20%"
                         tools:ignore="ContentDescription" />

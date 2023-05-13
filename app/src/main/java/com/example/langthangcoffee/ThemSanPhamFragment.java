@@ -298,7 +298,7 @@ public class ThemSanPhamFragment extends Fragment implements FoodOrderToppingAda
 
     private void themSanPham() {
         try {
-            String url = "http://10.0.2.2/server_langthangcoffee/admin/sanpham/them-moi";
+            String url = getString(R.string.endpoint_server) + "/admin/sanpham/them-moi";
 
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("Loading...");
@@ -356,8 +356,20 @@ public class ThemSanPhamFragment extends Fragment implements FoodOrderToppingAda
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //displaying the error in toast if occur
-                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            NetworkResponse response = error.networkResponse;
+                            if (error instanceof ServerError && response != null) {
+                                try {
+                                    String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                    JSONObject obj = new JSONObject(res);
+                                    Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                } catch (UnsupportedEncodingException e1) {
+                                    e1.printStackTrace();
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+
+
                             progressDialog.dismiss();
                         }
                     }) {
@@ -392,7 +404,7 @@ public class ThemSanPhamFragment extends Fragment implements FoodOrderToppingAda
 
     private void xoaSanPham() {
         try {
-            String url = "http://10.0.2.2/server_langthangcoffee/admin/sanpham/xoa-san-pham";
+            String url = getString(R.string.endpoint_server) + "/admin/sanpham/xoa-san-pham";
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("Loading...");
             progressDialog.show();
@@ -423,8 +435,20 @@ public class ThemSanPhamFragment extends Fragment implements FoodOrderToppingAda
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //displaying the error in toast if occur
-                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            NetworkResponse response = error.networkResponse;
+                            if (error instanceof ServerError && response != null) {
+                                try {
+                                    String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                    JSONObject obj = new JSONObject(res);
+                                    Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                } catch (UnsupportedEncodingException e1) {
+                                    e1.printStackTrace();
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+
+
                             progressDialog.dismiss();
                         }
                     }) {
@@ -459,7 +483,7 @@ public class ThemSanPhamFragment extends Fragment implements FoodOrderToppingAda
 
 
     private void uploadBitmap(final Bitmap bitmap) {
-        String url = "http://10.0.2.2/server_langthangcoffee/admin/up-anh";
+        String url = getString(R.string.endpoint_server) + "/admin/up-anh";
         ProgressDialog progressDialog
                 = new ProgressDialog(mainActivity);
         progressDialog.setTitle("Uploading...");

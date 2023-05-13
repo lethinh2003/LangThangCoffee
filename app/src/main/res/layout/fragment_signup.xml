@@ -223,6 +223,7 @@
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <ImageView
+                        android:id="@+id/img_showpassword"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
@@ -241,6 +242,7 @@
                     app:justifyContent="flex_start">
 
                     <CheckBox
+                        android:id="@+id/chk_chinhsach"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         tools:ignore="TouchTargetSizeCheck">
@@ -266,6 +268,7 @@
                     app:alignItems="center">
 
                     <CheckBox
+                        android:id="@+id/chk_chuongtrinhthanhvien"
                         android:layout_width="25dp"
                         android:layout_height="match_parent"
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck">

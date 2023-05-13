@@ -23,6 +23,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,18 +33,24 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.langthangcoffee.fragment_menu_tool_bar.DashBoardFragment;
 import com.example.langthangcoffee.fragment_menu_tool_bar.MainActivity;
+import com.example.langthangcoffee.fragment_menu_tool_bar.SigninFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +60,6 @@ public class DatHangFragment extends Fragment implements View.OnClickListener {
     private int POS_TYPE_TRASUA = 0;
     private int POS_TYPE_SODA = 0;
     private int POS_TYPE_SWEETCAKE = 0;
-    private String url = "http://10.0.2.2/server_langthangcoffee/sanpham";
     private RecyclerView recyclerView;
     private FoodOrderAdapter foodOrderAdapter;
     private EditText searchFoodOrder;
@@ -63,6 +69,7 @@ public class DatHangFragment extends Fragment implements View.OnClickListener {
     private Button item1, item2, item3, item4, searchButton, priceButton;
     private TextView tvQuantity, tvQuantityOrder;
     GridLayoutManager gridLayoutManager;
+    ImageView imgBack;
 
     public MainActivity mainActivity;
 
@@ -81,6 +88,7 @@ public class DatHangFragment extends Fragment implements View.OnClickListener {
         foodOrderAdapter = new FoodOrderAdapter(list);
         recyclerView.setAdapter(foodOrderAdapter);
         getListFoodOrder();
+        imgBack = v.findViewById(id.img_back);
         item1 = v.findViewById(id.btn_caffe_selected);
         item2 = v.findViewById(id.btn_milktea_selected);
         item3 = v.findViewById(id.btn_soda_selected);
@@ -107,6 +115,19 @@ public class DatHangFragment extends Fragment implements View.OnClickListener {
         item2.setOnClickListener(this);
         item3.setOnClickListener(this);
         item4.setOnClickListener(this);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getFragmentManager() == null) {
+                    DashBoardFragment dashBoardFragment = new DashBoardFragment();
+                    mainActivity.loadFragment(dashBoardFragment);
+                } else {
+                    getFragmentManager().popBackStack();
+                }
+            }
+        });
+
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @SuppressLint({"ResourceAsColor", "UseCompatLoadingForDrawables"})
@@ -171,8 +192,13 @@ public class DatHangFragment extends Fragment implements View.OnClickListener {
         priceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                XacNhanDatHangFragment xacNhanDatHangFragment = new XacNhanDatHangFragment();
-                mainActivity.loadFragment(xacNhanDatHangFragment);
+                if (mainActivity.getTaiKhoan() == null) {
+                    SigninFragment signinFragment = new SigninFragment();
+                    mainActivity.loadFragment(signinFragment);
+                } else {
+                    XacNhanDatHangFragment xacNhanDatHangFragment = new XacNhanDatHangFragment();
+                    mainActivity.loadFragment(xacNhanDatHangFragment);
+                }
             }
         });
 
@@ -244,6 +270,7 @@ public class DatHangFragment extends Fragment implements View.OnClickListener {
 
 
     private void getListFoodOrder() {
+        String url = getString(R.string.endpoint_server) + "/sanpham";
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Loading...");
         progressDialog.show();
@@ -268,8 +295,6 @@ public class DatHangFragment extends Fragment implements View.OnClickListener {
                                 //getting the json object of the particular index inside the array
                                 JSONObject jsonObject = datasArray.getJSONObject(i);
                                 FoodOrder foodOrder = new FoodOrder();
-                                int imageID = getActivity().getResources().getIdentifier(jsonObject.getString("HinhAnh"), "drawable", getActivity().getPackageName());
-                                foodOrder.setImage(imageID);
                                 foodOrder.setHinhAnh(jsonObject.getString("HinhAnh"));
                                 foodOrder.setDesc(jsonObject.getString("MoTa"));
                                 foodOrder.setName(jsonObject.getString("TenSanPham"));
@@ -292,8 +317,20 @@ public class DatHangFragment extends Fragment implements View.OnClickListener {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        //displaying the error in toast if occur
-                        Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        NetworkResponse response = error.networkResponse;
+                        if (error instanceof ServerError && response != null) {
+                            try {
+                                String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                JSONObject obj = new JSONObject(res);
+                                Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                            } catch (UnsupportedEncodingException e1) {
+                                e1.printStackTrace();
+                            } catch (JSONException e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+
+
                         progressDialog.dismiss();
                     }
                 });

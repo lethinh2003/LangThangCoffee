@@ -117,14 +117,14 @@
                             android:textColor="@color/white" />
 
                         <Button
-                            android:id="@+id/btn_milktea_selected"
+                            android:id="@+id/btn_soda_selected"
                             android:layout_width="match_parent"
-                            android:textAllCaps="false"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
                             android:layout_weight="1"
                             android:background="@drawable/custom_btn_pale_cream_radius_10dp"
-                            android:text="@string/dathang_tv_title_trasua"
+                            android:text="@string/dathang_tv_title_soda"
+                            android:textAllCaps="false"
                             android:textColor="@color/black" />
 
                     </LinearLayout>
@@ -137,15 +137,17 @@
                         android:weightSum="2">
 
                         <Button
-                            android:id="@+id/btn_soda_selected"
+                            android:id="@+id/btn_milktea_selected"
                             android:layout_width="match_parent"
+                            android:textAllCaps="false"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="5dp"
                             android:layout_weight="1"
                             android:background="@drawable/custom_btn_pale_cream_radius_10dp"
-                            android:text="@string/dathang_tv_title_soda"
-                            android:textAllCaps="false"
+                            android:text="@string/dathang_tv_title_trasua"
                             android:textColor="@color/black" />
+
+
 
                         <Button
                             android:id="@+id/btn_sweetcake_selected"

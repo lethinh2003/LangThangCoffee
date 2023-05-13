@@ -57,7 +57,7 @@ public class FoodOrderAdapter extends RecyclerView.Adapter<FoodOrderAdapter.Food
                 DatHangChiTietFragment datHangChiTietFragment = new DatHangChiTietFragment();
                 // Truyền ID sản phẩm đến trang chi tiết
                 Bundle bundle = new Bundle();
-                bundle.putInt("IDSanPham", foodOrder.getID()); // Put anything what you want
+                bundle.putInt("IDSanPham", foodOrder.getID());
                 datHangChiTietFragment.setArguments(bundle);
                 // Mở trang chi tiết
                 myActivity.loadFragment(datHangChiTietFragment);

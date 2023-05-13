@@ -18,11 +18,14 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.langthangcoffee.fragment_menu_tool_bar.MainActivity;
@@ -80,8 +83,13 @@ public class XacNhanDatHangFragment extends Fragment {
         btnConfirmOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateTinhTrangDonHang();
-
+                if (lichSuOrderList.size() == 0) {
+                    Toast.makeText(getActivity(), "Vui lòng order ít nhất một món", Toast.LENGTH_SHORT).show();
+                } else if (donHang.getDiaChiGiaoHang() == null || donHang.getDiaChiGiaoHang().isEmpty()) {
+                    Toast.makeText(getActivity(), "Vui lòng điền địa chỉ giao hàng", Toast.LENGTH_SHORT).show();
+                } else {
+                    updateTinhTrangDonHang();
+                }
             }
         });
         imgBack.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +110,7 @@ public class XacNhanDatHangFragment extends Fragment {
 
     private void updateTinhTrangDonHang() {
         try {
-            String url = "http://10.0.2.2/server_langthangcoffee/donhang/update-tinh-trang";
+            String url = getString(R.string.endpoint_server) + "/donhang/update-tinh-trang";
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("Loading...");
             progressDialog.show();
@@ -140,7 +148,20 @@ public class XacNhanDatHangFragment extends Fragment {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            NetworkResponse response = error.networkResponse;
+                            if (error instanceof ServerError && response != null) {
+                                try {
+                                    String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                    JSONObject obj = new JSONObject(res);
+                                    Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                } catch (UnsupportedEncodingException e1) {
+                                    e1.printStackTrace();
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+
+
                             progressDialog.dismiss();
                         }
                     }) {
@@ -193,7 +214,7 @@ public class XacNhanDatHangFragment extends Fragment {
 
     private void getFoodOrderHistory() {
         try {
-            String url = "http://10.0.2.2/server_langthangcoffee/lichsuorder";
+            String url = getString(R.string.endpoint_server) + "/lichsuorder";
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("Loading...");
             progressDialog.show();
@@ -245,7 +266,20 @@ public class XacNhanDatHangFragment extends Fragment {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            NetworkResponse response = error.networkResponse;
+                            if (error instanceof ServerError && response != null) {
+                                try {
+                                    String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                    JSONObject obj = new JSONObject(res);
+                                    Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                } catch (UnsupportedEncodingException e1) {
+                                    e1.printStackTrace();
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+
+
                             progressDialog.dismiss();
                         }
                     }) {

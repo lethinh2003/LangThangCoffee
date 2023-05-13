@@ -87,7 +87,7 @@ public class ChiTietDatHangAdminDaHuyFragment extends Fragment {
             tvItemThanhToan.setText(String.valueOf(donHang.getSoTienThanhToan()) + " đ");
             tvItemPhiGiaoHang.setText(String.valueOf(donHang.getPhiGiaoHang()) + " đ");
             tvItemThanhTien.setText(String.valueOf(donHang.getThanhTien()) + " đ");
-            tvVoucher.setText(donHang.getMaVoucher().isEmpty() ? "Không có" : donHang.getMaVoucher());
+            tvVoucher.setText(donHang.getMaVoucher().isEmpty() || donHang.getMaVoucher() == null || donHang.getMaVoucher().equals("null") ? "Không có" : donHang.getMaVoucher());
             lichSuOrderList.clear();
             lichSuOrderList.addAll(donHang.getLichSuOrderList());
             foodOrderHistoryLichSuDonHangAdapter.notifyDataSetChanged();

@@ -67,7 +67,14 @@ public class ThayDoiMatKhauFragment extends Fragment {
         btnCapNhat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateMatKhau();
+                if (edtMatKhauHienTai.getText().toString().trim().length() < 6 || edtMatKhauMoi.getText().toString().trim().length() < 6) {
+                    Toast.makeText(getActivity(), "Mật khẩu phải từ 6 kí tự trở lên", Toast.LENGTH_SHORT).show();
+
+                } else if (edtMatKhauHienTai.getText().toString().trim().equals(edtMatKhauMoi.getText().toString().trim())) {
+                    Toast.makeText(getActivity(), "Hai mật khẩu không được trùng nhau", Toast.LENGTH_SHORT).show();
+                } else {
+                    updateMatKhau();
+                }
             }
         });
 
@@ -77,7 +84,7 @@ public class ThayDoiMatKhauFragment extends Fragment {
 
     public void getThongTinTaiKhoan() {
         try {
-            String url = "http://10.0.2.2/server_langthangcoffee/taikhoan/";
+            String url = getString(R.string.endpoint_server) + "/taikhoan/";
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("Loading...");
             progressDialog.show();
@@ -163,7 +170,7 @@ public class ThayDoiMatKhauFragment extends Fragment {
 
     public void updateMatKhau() {
         try {
-            String url = "http://10.0.2.2/server_langthangcoffee/taikhoan/update-mat-khau";
+            String url = getString(R.string.endpoint_server) + "/taikhoan/update-mat-khau";
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("Loading...");
             progressDialog.show();

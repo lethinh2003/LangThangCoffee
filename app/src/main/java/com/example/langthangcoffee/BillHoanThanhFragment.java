@@ -15,11 +15,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.langthangcoffee.fragment_menu_tool_bar.MainActivity;
@@ -57,7 +60,7 @@ public class BillHoanThanhFragment extends Fragment {
     public void getDonHangDangCho() {
         try {
 
-            String url = "http://10.0.2.2/server_langthangcoffee/donhang/get-don-hang-da-hoan-thanh";
+            String url = getString(R.string.endpoint_server) + "/donhang/get-don-hang-da-hoan-thanh";
             TaiKhoan taiKhoan = mainActivity.getTaiKhoan();
 
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
@@ -143,8 +146,20 @@ public class BillHoanThanhFragment extends Fragment {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //displaying the error in toast if occur
-                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            NetworkResponse response = error.networkResponse;
+                            if (error instanceof ServerError && response != null) {
+                                try {
+                                    String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                    JSONObject obj = new JSONObject(res);
+                                    Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                } catch (UnsupportedEncodingException e1) {
+                                    e1.printStackTrace();
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+
+
                             progressDialog.dismiss();
                         }
                     }) {

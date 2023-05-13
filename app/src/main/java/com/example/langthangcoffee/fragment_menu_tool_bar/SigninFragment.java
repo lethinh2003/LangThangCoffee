@@ -3,12 +3,14 @@ package com.example.langthangcoffee.fragment_menu_tool_bar;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -41,6 +43,8 @@ public class SigninFragment extends Fragment {
     MainActivity mainActivity;
     EditText edtPassKH, edtSDTKH;
     Button btnSignin;
+    ImageView imgShowPassword;
+    Boolean isShowPassword = false;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -49,46 +53,64 @@ public class SigninFragment extends Fragment {
         String sdtTaiKhoanStorage = sharedpreferences.getString("SDTTaiKhoan", "");
         String matKhauStorage = sharedpreferences.getString("MatKhau", "");
         Log.i("Account", sdtTaiKhoanStorage + " " + matKhauStorage);
-
         btnSignin = view.findViewById(R.id.btn_sign_in);
-
+        imgShowPassword = view.findViewById(R.id.img_showpassword);
         edtPassKH = view.findViewById(R.id.edt_password);
         edtSDTKH = view.findViewById(R.id.edt_phone_number);
-        LinearLayout app_layer = (LinearLayout) view.findViewById(R.id.ln_sign_up);
-// Open Sign up fragment
+
+
+        LinearLayout app_layer = view.findViewById(R.id.ln_sign_up);
+        // Open Sign up fragment
         app_layer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(getActivity(),"Text!",Toast.LENGTH_SHORT).show();
                 Fragment signupFragment = new SignupFragment();
                 ((MainActivity) getActivity()).loadFragment(signupFragment);
-
             }
         });
-// Login
+        imgShowPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!isShowPassword) {
+                    edtPassKH.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                } else {
+                    edtPassKH.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+                isShowPassword = !isShowPassword;
+                edtPassKH.setSelection(edtPassKH.length());
+                updateImageShowHidePassword();
+            }
+        });
+        // Login
         btnSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginTaiKhoan();
+                if (edtSDTKH.getText().toString().trim().length() != 10) {
+                    Toast.makeText(getActivity(), "Số điện thoại không hợp lệ", Toast.LENGTH_SHORT).show();
+                } else if (edtPassKH.getText().toString().trim().length() < 6) {
+                    Toast.makeText(getActivity(), "Mật khẩu phải từ 6 kí tự trở lên", Toast.LENGTH_SHORT).show();
+                } else {
+                    loginTaiKhoan();
+                }
             }
         });
-
+    }
+    void updateImageShowHidePassword() {
+        int drawableId = isShowPassword ? R.drawable.hidepassword : R.drawable.showpassword;
+        imgShowPassword.setImageResource(drawableId);
     }
 
     public void loginTaiKhoan() {
         {
-            String url = "http://10.0.2.2/server_langthangcoffee/taikhoan/sign-in";
-
-
+            String url = getString(R.string.endpoint_server) + "/taikhoan/sign-in";
+            Log.i("url", url);
             try {
                 final ProgressDialog progressDialog = new ProgressDialog(getActivity());
                 progressDialog.setMessage("Loading...");
                 progressDialog.show();
                 JSONObject jsonBody = new JSONObject();
                 jsonBody.put("SDTTaiKhoan", edtSDTKH.getText().toString());
-
                 jsonBody.put("MatKhau", edtPassKH.getText().toString());
-
                 final String requestBody = jsonBody.toString();
                 //creating a string request to send request to the url
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -100,8 +122,6 @@ public class SigninFragment extends Fragment {
                             //getting the whole json object from the response
                             JSONObject obj = new JSONObject(response);
                             Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
-
-
                             // Instance TaiKhoan
                             TaiKhoan taiKhoan = new TaiKhoan();
                             JSONObject jsonObjectData = obj.getJSONObject("data");
@@ -116,7 +136,7 @@ public class SigninFragment extends Fragment {
 
                             mainActivity.setTaiKhoan(taiKhoan);
                             mainActivity.drawerNavigation();
-// Load Dashboard fragment
+                            // Load Dashboard fragment
                             DashBoardFragment dashBoardFragment = new DashBoardFragment();
                             mainActivity.loadFragment(dashBoardFragment);
 
@@ -138,15 +158,11 @@ public class SigninFragment extends Fragment {
                         if (error instanceof ServerError && response != null) {
                             try {
                                 String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
-                                // Now you can use any deserializer to make sense of data
                                 JSONObject obj = new JSONObject(res);
-                                //displaying the error in toast if occur
                                 Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             } catch (UnsupportedEncodingException e1) {
-                                // Couldn't properly decode data to string
                                 e1.printStackTrace();
                             } catch (JSONException e2) {
-                                // returned data is not JSONObject?
                                 e2.printStackTrace();
                             }
                         }
@@ -170,8 +186,6 @@ public class SigninFragment extends Fragment {
                             return null;
                         }
                     }
-
-
                 };
 
                 //creating a request queue

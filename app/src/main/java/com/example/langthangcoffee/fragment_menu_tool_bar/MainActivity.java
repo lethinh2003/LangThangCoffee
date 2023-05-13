@@ -26,19 +26,24 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.langthangcoffee.DangXuatFragment;
 import com.example.langthangcoffee.DatHangFragment;
 import com.example.langthangcoffee.DonHang;
 import com.example.langthangcoffee.DrawerAdapter;
 import com.example.langthangcoffee.DrawerItem;
 import com.example.langthangcoffee.FoodOrderTopping;
 import com.example.langthangcoffee.LichSuOrder;
+import com.example.langthangcoffee.NavigationItem;
 import com.example.langthangcoffee.R;
 import com.example.langthangcoffee.SimpleItem;
 import com.example.langthangcoffee.TaiKhoan;
@@ -56,47 +61,27 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnItemSelectedListener {
-    public static int POS_CLOSE;
-    public static int POS_DASHBOARD;
-    public static int POS_ACCOUNT;
-    public static int POS_CART;
-    public static int POS_ABOUT_US;
-    public static int POS_SIGNIN;
-    public static int POS_LOGOUT;
-    public static int POS_ADMIN;
-    private String[] screenTitles;
-    private Drawable[] screenIcons;
-
+    private List<NavigationItem> navigationItemList = new ArrayList<NavigationItem>();
     private SlidingRootNav slidingRootNav;
-
-    private String[] getScreenTitles;
-
-    private String[] getScreenIcons;
-    private String lastTitle;
-    private String lastIcon;
-
     private TaiKhoan taiKhoan = null;
     private DonHang donHang = null;
-
     private RecyclerView mDrawerList;
     private DrawerAdapter drawerAdapter;
-
 
     private final ActivityResultLauncher<String> requestPermissionLauncher =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
                 if (isGranted) {
+
                 } else {
                     // TODO: Inform user that that your app will not show notifications.
                 }
             });
 
     private void askNotificationPermission() {
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) ==
                     PackageManager.PERMISSION_GRANTED) {
@@ -115,94 +100,75 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-
         Toolbar toolbar = findViewById(R.id.tb_activity);
         setSupportActionBar(toolbar);
         //noinspection deprecation
         slidingRootNav = new SlidingRootNavBuilder(this).withDragDistance(180).withRootViewScale(0.75f).withRootViewElevation(25).withToolbarMenuToggle(toolbar).withMenuOpened(false).withContentClickableWhenMenuOpened(false).withSavedState(savedInstanceState).withMenuLayout(R.layout.drawer_menu).inject();
-// Draw navigation
+        // Draw navigation
         drawerNavigation();
 
-        drawerAdapter.setSelected(POS_DASHBOARD);
-
-
     }
-
+    // Vẽ thanh navigation
     public void drawerNavigation() {
-        if (taiKhoan == null) {
-            POS_CLOSE = 0;
-            POS_DASHBOARD = 1;
-            POS_CART = 2;
-            POS_SIGNIN = 3;
-            POS_ACCOUNT = 99;
-
-            screenIcons = loadScreenIcons();
-            screenTitles = loadScreenTitles();
-
-            drawerAdapter = new DrawerAdapter(Arrays.asList(createItemFor(POS_CLOSE), createItemFor(POS_DASHBOARD).setChecked(true), createItemFor(POS_CART), createItemFor(POS_SIGNIN)));
-
-            drawerAdapter.setListener(this);
-
-
-            mDrawerList = findViewById(R.id.drawer_list);
-            mDrawerList.setNestedScrollingEnabled(false);
-            mDrawerList.setLayoutManager(new LinearLayoutManager(this));
-            mDrawerList.setAdapter(drawerAdapter);
-        } else if (taiKhoan != null) {
-            POS_CLOSE = 0;
-            POS_DASHBOARD = 1;
-            POS_ACCOUNT = 2;
-            POS_CART = 3;
-            POS_SIGNIN = 4;
-            POS_ADMIN = 5;
-
-            screenIcons = loadScreenIcons();
-            screenTitles = loadScreenTitles();
-            drawerAdapter = new DrawerAdapter(Arrays.asList(createItemFor(POS_CLOSE), createItemFor(POS_DASHBOARD).setChecked(true), createItemFor(POS_ACCOUNT), createItemFor(POS_CART), createItemFor(POS_SIGNIN), createItemFor(POS_ADMIN)));
-
-            drawerAdapter.setListener(this);
-
-
-            mDrawerList = findViewById(R.id.drawer_list);
-            mDrawerList.setNestedScrollingEnabled(false);
-            mDrawerList.setLayoutManager(new LinearLayoutManager(this));
-            mDrawerList.setAdapter(drawerAdapter);
-
+        setNavigationItemList();
+        List<DrawerItem> drawerItemList = new ArrayList<DrawerItem>();
+        for (NavigationItem item : navigationItemList
+        ) {
+            DrawerItem drawerItem = createItemFor(item);
+            drawerItemList.add(drawerItem);
         }
+        drawerAdapter = new DrawerAdapter(drawerItemList);
+        drawerAdapter.setListener(this);
+        mDrawerList = findViewById(R.id.drawer_list);
+        mDrawerList.setNestedScrollingEnabled(false);
+        mDrawerList.setLayoutManager(new LinearLayoutManager(this));
+        mDrawerList.setAdapter(drawerAdapter);
+        // Mặc định hiển thị ở trang chủ
+        drawerAdapter.setSelected(1);
+
+
     }
 
-    private String[] getScreenIconFromArray() {
-        return getResources().getStringArray(R.array.ld_activityScreenIcons);
-    }
-
-    private String[] getScreenTitlesFromArray() {
-        return getResources().getStringArray(R.array.ld_activityScreenTitles);
-    }
-
-    private DrawerItem createItemFor(int position) {
-        return new SimpleItem(screenIcons[position], screenTitles[position]).withIconTint(color(R.color.deep_orange)).withTextTint(color(R.color.dark_sienna)).withSelectedIconTint(color(R.color.deep_orange)).withSelectedTextTint(color(R.color.deep_orange));
+    private DrawerItem createItemFor(NavigationItem navigationItem) {
+        return new SimpleItem(navigationItem.getDrawable(), navigationItem.getTitle()).withIconTint(color(R.color.deep_orange)).withTextTint(color(R.color.dark_sienna)).withSelectedIconTint(color(R.color.deep_orange)).withSelectedTextTint(color(R.color.deep_orange));
     }
 
     @Override
     public void onItemSelected(int position) {
         @SuppressLint("CommitTransaction") FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        if (position == POS_CLOSE) {
-            onBackPressed();
-        } else if (position == POS_DASHBOARD) {
-            DashBoardFragment dashBoardFragment = new DashBoardFragment();
-            loadFragment(dashBoardFragment);
-        } else if (position == POS_ACCOUNT) {
-            TrangCaNhanFragment trangCaNhanFragment = new TrangCaNhanFragment();
-            loadFragment(trangCaNhanFragment);
-        } else if (position == POS_CART) {
-            DatHangFragment datHangFragment = new DatHangFragment();
-            loadFragment(datHangFragment);
-        } else if (position == POS_SIGNIN) {
-            SigninFragment signinFragment = new SigninFragment();
-            loadFragment(signinFragment);
-        } else if (position == POS_ADMIN) {
-            TrangQuanLyFragment trangQuanLyFragment = new TrangQuanLyFragment();
-            loadFragment(trangQuanLyFragment);
+        NavigationItem navigationItem = navigationItemList.get(position);
+        String key = navigationItem.getKey();
+        switch (key) {
+            case "close":
+                onBackPressed();
+                break;
+            case "home":
+                DashBoardFragment dashBoardFragment = new DashBoardFragment();
+                loadFragment(dashBoardFragment);
+                break;
+            case "profile":
+                TrangCaNhanFragment trangCaNhanFragment = new TrangCaNhanFragment();
+                loadFragment(trangCaNhanFragment);
+                break;
+            case "cart":
+                DatHangFragment datHangFragment = new DatHangFragment();
+                loadFragment(datHangFragment);
+                break;
+            case "signin":
+                SigninFragment signinFragment = new SigninFragment();
+                loadFragment(signinFragment);
+                break;
+            case "logout":
+                DangXuatFragment dangXuatFragment = new DangXuatFragment();
+                loadFragment(dangXuatFragment);
+                break;
+            case "admin":
+                TrangQuanLyFragment trangQuanLyFragment = new TrangQuanLyFragment();
+                loadFragment(trangQuanLyFragment);
+                break;
+            default:
+
+                break;
         }
     }
 
@@ -211,13 +177,43 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         finish();
     }
 
+    private void setNavigationItemList() {
+        navigationItemList.clear();
+        String[] screenTitles = loadScreenTitles();
+        String[] screenKeys = loadScreenKeys();
+        Drawable[] screenIcons = loadScreenIcons();
+        for (int i = 0; i < screenTitles.length; i++) {
+            NavigationItem navigationItem = new NavigationItem();
+            navigationItem.setDrawable(screenIcons[i]);
+            navigationItem.setKey(screenKeys[i]);
+            navigationItem.setTitle(screenTitles[i]);
+            navigationItemList.add(navigationItem);
+        }
+
+    }
+
 
     private String[] loadScreenTitles() {
         if (taiKhoan == null) {
             return getResources().getStringArray(R.array.ld_activityScreenTitles);
         } else {
-            return getResources().getStringArray(R.array.ld_activityScreenTitlesAuthenciated);
+            if (taiKhoan.getMaQuyenHan() == 1) {
+                return getResources().getStringArray(R.array.ld_activityScreenTitlesAuthenciated);
+            } else {
+                return getResources().getStringArray(R.array.ld_activityScreenTitlesAuthenciatedAdmin);
+            }
+        }
+    }
 
+    private String[] loadScreenKeys() {
+        if (taiKhoan == null) {
+            return getResources().getStringArray(R.array.ld_activityScreenKeys);
+        } else {
+            if (taiKhoan.getMaQuyenHan() == 1) {
+                return getResources().getStringArray(R.array.ld_activityScreenKeysAuthenciated);
+            } else {
+                return getResources().getStringArray(R.array.ld_activityScreenKeysAuthenciatedAdmin);
+            }
         }
     }
 
@@ -227,8 +223,12 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
             ta = getResources().obtainTypedArray(R.array.ld_activityScreenIcons);
 
         } else {
-            ta = getResources().obtainTypedArray(R.array.ld_activityScreenIconsAuthenciated);
+            if (taiKhoan.getMaQuyenHan() == 1) {
+                ta = getResources().obtainTypedArray(R.array.ld_activityScreenIconsAuthenciated);
+            } else {
+                ta = getResources().obtainTypedArray(R.array.ld_activityScreenIconsAuthenciatedAdmin);
 
+            }
         }
         Drawable[] icons = new Drawable[ta.length()];
         for (int i = 0; i < ta.length(); i++) {
@@ -246,9 +246,10 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         return ContextCompat.getColor(this, res);
     }
 
+    // Chuyển fragment
     public void loadFragment(Fragment fragment) {
-        // load fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
         transaction.add(fragment, null);
         transaction.replace(R.id.container_activity, fragment);
         slidingRootNav.closeMenu();
@@ -274,31 +275,22 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         }
     }
 
-
     public void getDonHangMoiNhat() {
         try {
-            String url = "http://10.0.2.2/server_langthangcoffee/donhang/moinhat";
+            String url = getString(R.string.endpoint_server) + "/donhang/moinhat";
             donHang = null;
-
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setMessage("Loading...");
             progressDialog.show();
             JSONObject jsonBody = new JSONObject();
             jsonBody.put("SDTTaiKhoan", taiKhoan.getSdtTaiKhoan());
             final String requestBody = jsonBody.toString();
-            //creating a string request to send request to the url
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            //hiding the progressbar after completion
-
                             try {
-                                //getting the whole json object from the response
                                 JSONObject jsonObject = new JSONObject(response);
-                                //we have the array named data  inside the object
-                                //so here we are getting that json array
-
                                 // get don hang info
                                 JSONObject jsonObjectData = jsonObject.getJSONObject("data");
                                 donHang = new DonHang();
@@ -308,10 +300,8 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
                                 donHang.setThanhTien(jsonObjectData.getInt("ThanhTien"));
                                 donHang.setTinhTrang(jsonObjectData.getInt("TinhTrang"));
                                 donHang.setDiaChiGiaoHang(jsonObjectData.getString("DiaChiGiaoHang"));
-
                                 donHang.setSdtKhachHang(jsonObjectData.getString("SDTTaiKhoan"));
                                 donHang.setMaVoucher(jsonObjectData.getString("MaVoucher"));
-
                                 // get lich su order cua don hang
                                 List<LichSuOrder> lichSuOrderList = new ArrayList<LichSuOrder>();
                                 JSONArray jsonArray = jsonObject.getJSONArray("lichSuOrder");
@@ -338,13 +328,9 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
                                         foodOrderToppingList.add(foodOrderTopping);
                                     }
                                     lichSuOrder.setFoodOrderToppingList(foodOrderToppingList);
-
-
                                     lichSuOrderList.add(lichSuOrder);
                                 }
                                 donHang.setLichSuOrderList(lichSuOrderList);
-
-
                                 progressDialog.dismiss();
 
                             } catch (JSONException e) {
@@ -356,8 +342,18 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //displaying the error in toast if occur
-                            Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            NetworkResponse response = error.networkResponse;
+                            if (error instanceof ServerError && response != null) {
+                                try {
+                                    String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                    JSONObject obj = new JSONObject(res);
+                                    Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                } catch (UnsupportedEncodingException e1) {
+                                    e1.printStackTrace();
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
                             progressDialog.dismiss();
                         }
                     }) {
@@ -376,21 +372,15 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
                         return null;
                     }
                 }
-
-
             };
-
-            //creating a request queue
             RequestQueue requestQueue = Volley.newRequestQueue(this);
-            //adding the string request to request queue
             requestQueue.add(stringRequest);
-
         } catch (JSONException err) {
             err.printStackTrace();
         }
     }
 
-
+    // Lấy registration token FCM (nhận thông báo)
     void getTokenNotification() {
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
@@ -400,24 +390,17 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
                             Log.w("error", "Fetching FCM registration token failed", task.getException());
                             return;
                         }
-
-                        // Get new FCM registration token
                         String token = task.getResult();
-
-
-                        // Log and toast
                         Log.i("token", token);
                         updateTokenNotificationDatabase(token);
                     }
                 });
-
     }
 
+    // Cập nhật registration token lên server
     void updateTokenNotificationDatabase(String token) {
-
         try {
-            String url = "http://10.0.2.2/server_langthangcoffee/taikhoan/update-notification-token";
-
+            String url = getString(R.string.endpoint_server) + "/taikhoan/update-notification-token";
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setMessage("Loading...");
             progressDialog.show();
@@ -425,23 +408,13 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
             jsonBody.put("SDTTaiKhoan", taiKhoan.getSdtTaiKhoan());
             jsonBody.put("Token", token);
             final String requestBody = jsonBody.toString();
-            //creating a string request to send request to the url
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            //hiding the progressbar after completion
-
                             try {
-                                //getting the whole json object from the response
                                 JSONObject jsonObject = new JSONObject(response);
-                                //we have the array named data  inside the object
-                                //so here we are getting that json array
-
                                 taiKhoan.setNotificationToken(token);
-                                Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
-
-
                                 progressDialog.dismiss();
 
                             } catch (JSONException e) {
@@ -453,8 +426,18 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //displaying the error in toast if occur
-                            Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            NetworkResponse response = error.networkResponse;
+                            if (error instanceof ServerError && response != null) {
+                                try {
+                                    String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                    JSONObject obj = new JSONObject(res);
+                                    Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                } catch (UnsupportedEncodingException e1) {
+                                    e1.printStackTrace();
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
                             progressDialog.dismiss();
                         }
                     }) {
@@ -473,15 +456,9 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
                         return null;
                     }
                 }
-
-
             };
-
-            //creating a request queue
             RequestQueue requestQueue = Volley.newRequestQueue(this);
-            //adding the string request to request queue
             requestQueue.add(stringRequest);
-
         } catch (JSONException err) {
             err.printStackTrace();
         }

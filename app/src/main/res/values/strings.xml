@@ -1,6 +1,8 @@
 <resources>
     <!--  All  -->
     <string name="app_name"></string>
+    <string name="endpoint_server">http://10.0.2.2/server_langthangcoffee</string>
+
     <string name="all_app_name_uppercase"><b>THE LANG THANG \n COFFEE</b></string>
 
     <!--    Layout-->
@@ -204,8 +206,6 @@
     <string name="ln_ln_page_6_dash_board_desc_3">Quán của chúng tôi có không gian ấm cúng và thiết kế sang trọng, tạo ra một môi trường thư giãn và đầy cảm hứng cho khách hàng. Bạn sẽ có cơ hội thưởng thức cà phê tuyệt vời trong một không gian thoải mái và đầy hứng khởi. Hãy ghé thăm quán của chúng tôi để tận hưởng không gian đẹp và thoải mái nhất.\n</string>
 
     <!-- All For Item -->
-
-
     <string name="all_choose_size">Size</string>
     <string name="all_small_size">Nhỏ</string>
     <string name="all_middle_size">Vừa</string>

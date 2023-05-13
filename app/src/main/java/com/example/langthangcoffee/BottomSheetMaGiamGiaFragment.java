@@ -72,7 +72,7 @@ public class BottomSheetMaGiamGiaFragment extends BottomSheetDialogFragment {
     }
     private void updateVoucherDonHang() {
         try {
-            String url = "http://10.0.2.2/server_langthangcoffee/donhang/update-voucher";
+            String url = getString(R.string.endpoint_server) + "/donhang/update-voucher";
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("Loading...");
             progressDialog.show();

@@ -3,6 +3,7 @@ package com.example.langthangcoffee;
 import static com.example.langthangcoffee.R.layout;
 
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.LayoutInflater;
@@ -19,11 +20,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.langthangcoffee.fragment_menu_tool_bar.MainActivity;
@@ -68,7 +72,13 @@ public class ThongTinCaNhanFragment extends Fragment {
         btnCapNhat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateThongTinTaiKhoan();
+                if (edtHo.getText().toString().trim().length() == 0 || edtTen.getText().toString().trim().length() == 0 || edtDiaChi.getText().toString().trim().length() == 0) {
+                    Toast.makeText(getActivity(), "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    updateThongTinTaiKhoan();
+                }
+
             }
         });
 
@@ -78,7 +88,7 @@ public class ThongTinCaNhanFragment extends Fragment {
 
     public void getThongTinTaiKhoan() {
         try {
-            String url = "http://10.0.2.2/server_langthangcoffee/taikhoan/";
+            String url = getString(R.string.endpoint_server) + "/taikhoan";
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("Loading...");
             progressDialog.show();
@@ -114,8 +124,20 @@ public class ThongTinCaNhanFragment extends Fragment {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //displaying the error in toast if occur
-                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            NetworkResponse response = error.networkResponse;
+                            if (error instanceof ServerError && response != null) {
+                                try {
+                                    String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                    JSONObject obj = new JSONObject(res);
+                                    Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                } catch (UnsupportedEncodingException e1) {
+                                    e1.printStackTrace();
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+
+
                             progressDialog.dismiss();
                         }
                     }) {
@@ -148,7 +170,7 @@ public class ThongTinCaNhanFragment extends Fragment {
     }
     public void updateThongTinTaiKhoan() {
         try {
-            String url = "http://10.0.2.2/server_langthangcoffee/taikhoan/update";
+            String url = getString(R.string.endpoint_server) + "/taikhoan/update";
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setMessage("Loading...");
             progressDialog.show();
@@ -190,8 +212,20 @@ public class ThongTinCaNhanFragment extends Fragment {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //displaying the error in toast if occur
-                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            NetworkResponse response = error.networkResponse;
+                            if (error instanceof ServerError && response != null) {
+                                try {
+                                    String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                    JSONObject obj = new JSONObject(res);
+                                    Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                } catch (UnsupportedEncodingException e1) {
+                                    e1.printStackTrace();
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
+                                }
+                            }
+
+
                             progressDialog.dismiss();
                         }
                     }) {
@@ -229,7 +263,14 @@ public class ThongTinCaNhanFragment extends Fragment {
         edtSDT.setText(taiKhoan.getSdtTaiKhoan());
         tvTenQuyenHan.setText(taiKhoan.getTenQuyenHan());
         edtDiaChi.setText(taiKhoan.getDiaChiGiaoHang());
-
+        disableEditText(edtSDT);
+    }
+    private void disableEditText(EditText editText) {
+        editText.setFocusable(false);
+        editText.setEnabled(false);
+        editText.setCursorVisible(false);
+        editText.setKeyListener(null);
+        editText.setBackgroundColor(Color.TRANSPARENT);
     }
 
 }
