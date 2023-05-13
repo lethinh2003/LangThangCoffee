@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Giảm 50% + freeship"
+
                 android:fontFamily="@font/inter_medium"
                 android:textColor="@color/black"
                 android:textSize="15dp" />
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="VOUCHER 001"
+
                 android:textColor="@color/black"
                 android:textSize="15dp"
                 android:textStyle="bold" />
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Hết hạn trong 2 ngày nữa"
+
                 android:fontFamily="@font/inter_medium"
                 android:textColor="#F68422"
                 android:textSize="15dp" />

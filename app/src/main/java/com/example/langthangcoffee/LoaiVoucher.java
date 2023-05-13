@@ -39,4 +39,9 @@ public class LoaiVoucher {
     public int getGiaTriGiamGia() {
         return giaTriGiamGia;
     }
+
+    @Override
+    public String toString() {
+        return tenLoaiVoucher;
+    }
 }

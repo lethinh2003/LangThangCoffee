@@ -27,8 +27,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:layout_marginBottom="@dimen/marginbottom_all_component"
+                    android:orientation="horizontal"
 
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -50,7 +50,7 @@
 
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center_horizontal"
-                        android:text="Trang Cá Nhân"
+                        android:text="@string/trangcanhan_tv_title"
                         android:textColor="@color/black"
                         android:textSize="16dp" />
                 </LinearLayout>
@@ -69,7 +69,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
-                        android:text="Tiện ích"
+                        android:text="@string/trangcanhan_tv_title_tienich"
                         android:textColor="@color/all_title"
                         android:textSize="@dimen/textsize_all_bigtitle"
                         android:textStyle="bold" />
@@ -94,11 +94,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_medium"
-                            android:text="Lịch sử đơn hàng"
+                            android:text="@string/trangcanhan_tv_title_lichsudonhang"
                             android:textAllCaps="false"
                             android:textColor="@color/black" />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/ln_danhsachuudai"
                         android:layout_width="match_parent"
@@ -117,7 +118,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_medium"
-                            android:text="Danh sách ưu đãi"
+                            android:text="@string/trangcanhan_tv_title_danhsachuudai"
                             android:textAllCaps="false"
                             android:textColor="@color/black" />
 
@@ -132,7 +133,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
 
-                        android:text="Tài khoản"
+                        android:text="@string/all_tv_title_taikhoan"
                         android:textColor="@color/all_title"
                         android:textSize="@dimen/textsize_all_bigtitle"
                         android:textStyle="bold" />
@@ -157,7 +158,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_medium"
-                            android:text="Thông tin cá nhân"
+                            android:text="@string/trangcanhan_tv_title_thongtincanhan"
                             android:textColor="@color/black"
 
                             />
@@ -184,7 +185,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_medium"
-                            android:text="Thay đổi mật khẩu"
+                            android:text="@string/trangcanhan_tv_title_thaydoimatkhau"
 
                             android:textColor="@color/black"
 
@@ -200,6 +201,7 @@
                         android:background="@drawable/btn_trang_ca_nhan"
                         android:orientation="vertical"
                         android:padding="@dimen/padding_all_component">
+
                         <ImageView
                             android:id="@+id/img_ic_logout_canhan"
                             android:layout_width="wrap_content"
@@ -212,8 +214,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_medium"
 
-                            android:textColor="@color/black"
-                            android:text="Đăng xuất" />
+                            android:text="@string/trangcanhan_tv_title_dangxuat"
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
 
@@ -225,11 +227,12 @@
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
-                        android:text="Hỗ trợ"
+                        android:text="@string/trangcanhan_tv_title_hotro"
 
                         android:textColor="@color/all_title"
                         android:textSize="@dimen/textsize_all_bigtitle"
                         android:textStyle="bold" />
+
                     <LinearLayout
                         android:id="@+id/ln_lienhe"
                         android:layout_width="match_parent"
@@ -238,6 +241,7 @@
                         android:background="@drawable/btn_trang_ca_nhan"
                         android:orientation="vertical"
                         android:padding="@dimen/padding_all_component">
+
                         <ImageView
                             android:id="@+id/img_ic_lienhe_canhan"
                             android:layout_width="wrap_content"
@@ -250,8 +254,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_medium"
 
-                            android:textColor="@color/black"
-                            android:text="Liên hệ" />
+                            android:text="@string/trangcanhan_tv_title_lienhe"
+                            android:textColor="@color/black" />
                     </LinearLayout>
 
                 </LinearLayout>

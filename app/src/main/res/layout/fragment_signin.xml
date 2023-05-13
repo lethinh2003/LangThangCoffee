@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment_menu_tool_bar.MainActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="700dp"
@@ -39,7 +41,7 @@
                     android:fontFamily="@font/roboto"
                     android:gravity="center_horizontal"
                     android:text="@string/rl_ln_fragment_dash_board_title"
-                    android:textColor="@color/dim_gray"
+                    android:textColor="@color/black"
                     android:textSize="16dp" />
 
                 <TextView
@@ -50,64 +52,75 @@
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center_horizontal"
                     android:text="@string/all_app_name_uppercase"
-                    android:textColor="@color/deep_black"
+                    android:textColor="@color/black"
                     android:textSize="32dp" />
 
-                <LinearLayout
-                    android:id="@+id/ln_phone_number"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/button_height"
+                    android:layout_height="60dp"
                     android:layout_marginStart="@dimen/margin_all_component"
                     android:layout_marginEnd="@dimen/margin_all_component"
                     android:layout_marginBottom="@dimen/marginbottom_all_component"
-                    android:background="@drawable/layout_phone_number_bg_uncheck"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/marginbottom_all_component">
+                    android:background="@drawable/layout_phone_number_bg_uncheck">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:src="@drawable/img_vietnam_flag"
-                        tools:ignore="ContentDescription" />
-
-                    <TextView
-                        android:id='@+id/tv_plus_84'
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="@string/tv_plus_84"
-                        android:textColor="@color/light_silver_gray"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id='@+id/tv_vertical_line'
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="20dp"
-                        android:text="@string/tv_vertical_line"
-                        android:textColor="@color/light_silver_gray"
-                        android:textSize="40sp" />
-
-                    <EditText
-                        android:id='@+id/edt_phone_number'
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="@dimen/margin_all_component"
-                        android:background="@null"
-                        android:backgroundTint="@color/light_silver_gray"
-                        android:gravity="left"
-                        android:hint="@string/et_phone_number"
-                        android:inputType="phone"
-                        android:maxLength="12"
-                        android:maxLines="1"
-                        android:textColorHint="@color/light_silver_gray" />
-                </LinearLayout>
+                        android:orientation="horizontal"
+
+                        android:weightSum="4">
+
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/img_vietnam_flag"
+
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:id='@+id/tv_plus_84'
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:text="@string/tv_plus_84"
+                            android:textColor="@color/light_silver_gray"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id='@+id/tv_vertical_line'
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/tv_vertical_line"
+                            android:textColor="#EAEAEA"
+                            android:textSize="40sp" />
+
+                        <EditText
+                            android:id='@+id/edt_phone_number'
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@android:color/transparent"
+                            android:gravity="left"
+                            android:hint="@string/all_tv_hint_nhapsdt"
+                            android:inputType="textNoSuggestions"
+                            android:textColorHint="@color/light_silver_gray"
+android:textColor="@color/black"
+                            tools:ignore="TouchTargetSizeCheck" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
 
                 <LinearLayout
                     android:id="@+id/ln_password"
@@ -130,10 +143,11 @@
                         android:background="@null"
                         android:backgroundTint="@color/light_silver_gray"
                         android:gravity="left"
-                        android:hint="@string/sign_in_et_password"
+                        android:hint="@string/all_tv_hint_matkhau"
                         android:inputType="textPassword"
                         android:maxLength="12"
                         android:maxLines="1"
+                        android:textColor="@color/black"
                         android:textColorHint="@color/light_silver_gray" />
 
                 </LinearLayout>
@@ -148,7 +162,7 @@
                     android:height="@dimen/button_height"
                     android:background="@drawable/btn_not_active_background"
                     android:fontFamily="@font/roboto"
-                    android:text="Đăng nhập"
+                    android:text="@string/signin_tv_btn_sign_in"
                     android:textAllCaps="false"
 
                     android:textSize="16dp" />
@@ -159,9 +173,9 @@
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
-                    android:text="Hoặc"
+                    android:text="@string/signin_tv_or"
                     android:textAllCaps="true"
-                    android:textColor="#89898D"
+                    android:textColor="@color/slate_gray"
                     android:textSize="16dp" />
 
                 <LinearLayout
@@ -185,8 +199,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/tv_sign_in_with_google"
-                        android:textColor="#000"
+                        android:text="@string/signin_tv_sign_in_with_google"
+                        android:textColor="@color/black"
                         android:textSize="16dp" />
                 </LinearLayout>
 
@@ -205,8 +219,8 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tạo tài khoản mới"
-                        android:textColor="#000"
+                        android:text="@string/signin_tv_new_register"
+                        android:textColor="@color/black"
                         android:textSize="16dp" />
                 </LinearLayout>
 

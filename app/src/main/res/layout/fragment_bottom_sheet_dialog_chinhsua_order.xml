@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/roboto_bold"
-            android:text="Cà phê đen"
+
             android:textColor="@color/deep_black"
             android:textSize="16dp" />
 
@@ -56,7 +56,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_medium"
-                android:text="@string/all_choose_size"
+                android:text="@string/all_tv_title_size"
                 android:textColor="@color/deep_black"
                 android:textSize="23dp"
                 android:textStyle="bold"
@@ -69,7 +69,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_medium"
-                android:text="@string/all_choose_size_compulsory"
+                android:text="@string/all_tv_title_chonsize"
                 android:textColor="@color/deep_black"
                 android:textSize="15sp" />
 
@@ -101,7 +101,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_medium"
-                android:text="@string/all_topping"
+                android:text="@string/all_tv_title_topping"
                 android:textColor="@color/deep_black"
                 android:textSize="23dp"
                 android:textStyle="bold"
@@ -114,7 +114,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_medium"
-                android:text="@string/all_choose_topping"
+                android:text="@string/all_tv_title_chontopping"
                 android:textColor="@color/deep_black"
                 android:textSize="15sp" />
 
@@ -145,7 +145,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_medium"
-                android:text="@string/tv_other_requirements"
+                android:text="@string/all_tv_title_ghichu"
                 android:textColor="@color/deep_black"
                 android:textSize="23dp"
                 android:textStyle="bold"
@@ -158,7 +158,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_medium"
-                android:text="@string/tv_other_requirements_desc"
+                android:text="@string/all_tv_title_motaghichu"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp" />
 
@@ -176,7 +176,7 @@
                     android:layout_marginStart="15dp"
                     android:background="@android:color/transparent"
                     android:gravity="left"
-                    android:hint="@string/edt_note"
+                    android:hint="@string/all_tv_hint_ghichu"
                     android:inputType="textNoSuggestions"
                     android:textColorHint="@color/light_silver_gray"
                     android:textSize="16dp"
@@ -195,7 +195,7 @@
 
                 android:background="@drawable/custom_btn_pale_cream_radius_10dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Xóa order"
+                android:text="@string/all_tv_btn_xoa"
                 android:textAllCaps="false"
                 android:textColor="#F68422"
                 android:textStyle="bold" />
@@ -244,7 +244,7 @@
                     android:layout_marginStart="15dp"
                     android:background="@drawable/layout_phone_number_bg_uncheck"
                     android:gravity="center"
-                    android:text="1"
+
                     android:textColor="@color/deep_black"
                     tools:ignore="HardcodedText" />
 
@@ -272,7 +272,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/custom_btn_deep_orange_radius_10dp"
                 android:minHeight="48dp"
-                android:text="20.000 đ"
+
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 tools:ignore="HardcodedText,TouchTargetSizeCheck,TextSizeCheck" />

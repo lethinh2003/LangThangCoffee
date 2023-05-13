@@ -28,7 +28,7 @@
 
             android:layout_centerInParent="true"
             android:fontFamily="@font/roboto_bold"
-            android:text="Liên Hệ"
+            android:text="@string/lienhe_tv_title"
             android:textColor="@color/deep_black"
             android:textSize="16dp" />
 
@@ -37,7 +37,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/ln_navigation_bottom"
+
         android:layout_below="@id/rl_navigation_top"
 
         tools:ignore="SpeakableTextPresentCheck">
@@ -56,7 +56,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Số điện thoại"
+                android:text="@string/lienhe_tv_title_sdt"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
                 android:textStyle="bold"
@@ -83,7 +83,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Email"
+                android:text="@string/lienhe_tv_title_email"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
                 android:textStyle="bold"
@@ -110,7 +110,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Phiên bản ứng dụng"
+                android:text="@string/lienhe_tv_title_phienbanungdung"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
                 android:textStyle="bold"
@@ -128,8 +128,6 @@
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
                 tools:ignore="HardcodedText" />
-
-
 
 
         </LinearLayout>

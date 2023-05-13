@@ -50,7 +50,7 @@
 
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center_horizontal"
-                        android:text="Quản Lý Ứng Dụng"
+                        android:text="@string/trangquanly_tv_title"
                         android:textColor="@color/black"
                         android:textSize="16dp" />
                 </LinearLayout>
@@ -68,7 +68,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
-                        android:text="Đơn hàng"
+                        android:text="@string/all_tv_title_donhang"
                         android:textColor="@color/all_title"
                         android:textSize="@dimen/textsize_all_bigtitle"
                         android:textStyle="bold" />
@@ -93,7 +93,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_medium"
-                            android:text="Danh sách đơn hàng"
+                            android:text="@string/trangquanly_tv_title_danhsachdonhang"
                             android:textColor="@color/black" />
                     </LinearLayout>
 
@@ -105,7 +105,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
 
-                        android:text="Tài khoản"
+                        android:text="@string/all_tv_title_taikhoan"
                         android:textColor="@color/all_title"
                         android:textSize="@dimen/textsize_all_bigtitle"
                         android:textStyle="bold" />
@@ -129,7 +129,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
-                        android:text="Danh sách tài khoản"
+                        android:text="@string/trangquanly_tv_title_danhsachtaikhoan"
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter_medium"
 
@@ -142,7 +142,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
-                        android:text="Sản phẩm"
+                        android:text="@string/trangquanly_tv_title_sanpham"
 
                         android:textColor="@color/all_title"
                         android:textSize="@dimen/textsize_all_bigtitle"
@@ -168,7 +168,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter_medium"
-                        android:text="Danh sách sản phẩm" />
+                        android:text="@string/trangquanly_tv_title_danhsachsanpham" />
                     </LinearLayout>
                     <TextView
 
@@ -177,7 +177,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
-                        android:text="Voucher"
+                        android:text="@string/trangquanly_tv_title_voucher"
 
                         android:textColor="@color/all_title"
                         android:textSize="@dimen/textsize_all_bigtitle"
@@ -202,7 +202,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter_medium"
-                        android:text="Danh sách voucher" />
+                        android:text="@string/trangquanly_tv_title_danhsachvoucher" />
                     </LinearLayout>
                     <TextView
                         android:id="@+id/txt_hotro_canhan"
@@ -211,7 +211,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
-                        android:text="Thống kê"
+                        android:text="@string/trangquanly_tv_title_thongke"
 
                         android:textColor="@color/all_title"
                         android:textSize="@dimen/textsize_all_bigtitle"
@@ -237,7 +237,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:fontFamily="@font/inter_medium"
-                        android:text="Doanh thu" />
+                        android:text="@string/trangquanly_tv_title_doanhthu" />
                     </LinearLayout>
 
                 </LinearLayout>

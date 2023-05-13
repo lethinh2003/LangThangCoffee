@@ -45,7 +45,27 @@ public class TrangQuanLyFragment extends Fragment {
                 mainActivity.loadFragment(danhSachDonHangAdminFragment);
             }
         });
-
+        lnDanhSachKhachHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                QuanLyTaiKhoanFragment quanLyTaiKhoanFragment = new QuanLyTaiKhoanFragment();
+                mainActivity.loadFragment(quanLyTaiKhoanFragment);
+            }
+        });
+        lnDanhSachSanPham.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                QuanLySanPhamFragment quanLySanPhamFragment = new QuanLySanPhamFragment();
+                mainActivity.loadFragment(quanLySanPhamFragment);
+            }
+        });
+        lnDanhSachVoucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                QuanLyVoucherFragment quanLyVoucherFragment = new QuanLyVoucherFragment();
+                mainActivity.loadFragment(quanLyVoucherFragment);
+            }
+        });
         return v;
     }
 

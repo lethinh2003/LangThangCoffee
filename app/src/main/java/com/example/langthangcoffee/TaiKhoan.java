@@ -8,11 +8,13 @@ public class TaiKhoan {
     private String diaChiGiaoHang;
     private String tenQuyenHan;
     private String notificationToken;
+    private String thoiGianThamGia;
     private int maQuyenHan;
 
     public TaiKhoan(){
 
     }
+
 
     public void setNotificationToken(String notificationToken) {
         this.notificationToken = notificationToken;
@@ -20,6 +22,14 @@ public class TaiKhoan {
 
     public String getNotificationToken() {
         return notificationToken;
+    }
+
+    public String getThoiGianThamGia() {
+        return thoiGianThamGia;
+    }
+
+    public void setThoiGianThamGia(String thoiGianThamGia) {
+        this.thoiGianThamGia = thoiGianThamGia;
     }
 
     public void setTenQuyenHan(String tenQuyenHan) {
@@ -65,6 +75,8 @@ public class TaiKhoan {
     public int getMaQuyenHan() {
         return maQuyenHan;
     }
-
-
+    @Override
+    public String toString() {
+        return sdtTaiKhoan;
+    }
 }

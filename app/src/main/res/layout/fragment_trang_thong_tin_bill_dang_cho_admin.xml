@@ -25,10 +25,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
 
+            android:layout_centerInParent="true"
             android:fontFamily="@font/roboto_bold"
-            android:text="Chi Tiết Đặt Hàng"
+            android:text="@string/all_tv_title_chitietdathang"
             android:textColor="@color/deep_black"
             android:textSize="16dp" />
 
@@ -55,7 +55,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Tài khoản"
+                android:text="@string/all_tv_title_taikhoan"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
                 android:textStyle="bold"
@@ -69,7 +69,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_medium"
-                android:text="0369084341"
+
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
 
@@ -82,7 +82,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Mã đơn hàng"
+                android:text="@string/all_tv_title_madonhang"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
                 android:textStyle="bold"
@@ -96,7 +96,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_medium"
-                android:text="001"
+
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
 
@@ -109,7 +109,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Phương thức giao hàng"
+                android:text="@string/all_tv_title_phuongthucgiaohang"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
                 android:textStyle="bold"
@@ -123,7 +123,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_medium"
-                android:text="Tận nơi"
+                android:text="@string/all_tv_title_phuongthucgiaohang_tannoi"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
 
@@ -136,7 +136,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Thông tin giao hàng"
+                android:text="@string/all_tv_title_thongtingiaohang"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
                 android:textStyle="bold"
@@ -150,7 +150,6 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_medium"
-                android:text="Anh Thinh Le, 0369084341, Số 123, Đường Trường Trinh, Quận Tân Bình, TP HCM"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
                 tools:ignore="HardcodedText" />
@@ -162,7 +161,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Sản phẩm đã chọn"
+                android:text="@string/all_tv_title_sanphamdachon"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
                 android:textStyle="bold"
@@ -186,7 +185,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Tổng cộng"
+                android:text="@string/all_tv_title_tongcong"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
                 android:textStyle="bold"
@@ -209,7 +208,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/inter_medium"
-                    android:text="Thành tiền"
+                    android:text="@string/all_tv_title_thanhtien"
                     android:textColor="@color/deep_black"
                     android:textSize="15dp"
                     tools:ignore="HardcodedText" />
@@ -221,7 +220,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/inter_medium"
                     android:gravity="right"
-                    android:text="80.000 đ"
+
                     android:textColor="@color/deep_black"
                     android:textSize="15dp"
 
@@ -245,7 +244,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/inter_medium"
-                    android:text="Phí giao hàng"
+                    android:text="@string/all_tv_title_phigiaohang"
                     android:textColor="@color/deep_black"
                     android:textSize="15dp"
                     tools:ignore="HardcodedText" />
@@ -257,7 +256,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/inter_medium"
                     android:gravity="right"
-                    android:text="10.000 đ"
+
                     android:textColor="@color/deep_black"
                     android:textSize="15dp"
 
@@ -282,7 +281,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/inter_medium"
-                    android:text="Mã giảm giá"
+                    android:text="@string/all_tv_title_magiamgia"
                     android:textColor="#1540EC"
                     android:textSize="15dp"
                     tools:ignore="HardcodedText" />
@@ -294,7 +293,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/inter_medium"
                     android:gravity="right"
-                    android:text="Không có"
+                    android:text="@string/all_tv_title_magiamgia_khongco"
                     android:textColor="#1540EC"
                     android:textSize="15dp"
 
@@ -315,7 +314,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/inter_medium"
-                    android:text="Số tiền thanh toán"
+                    android:text="@string/all_tv_title_sotienthanhtoan"
                     android:textColor="@color/deep_black"
                     android:textSize="15dp"
                     tools:ignore="HardcodedText" />
@@ -327,7 +326,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/inter_medium"
                     android:gravity="right"
-                    android:text="90.000 đ"
+
                     android:textColor="@color/deep_black"
                     android:textSize="15dp"
 
@@ -341,7 +340,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Phương thức thanh toán"
+                android:text="@string/all_tv_title_phuongthucthanhtoan"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
                 android:textStyle="bold"
@@ -355,7 +354,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/inter_medium"
-                android:text="Tiền mặt"
+                android:text="@string/all_tv_title_phuongthucthanhtoan_tienmat"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
 
@@ -378,45 +377,46 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:ignore="UselessParent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-android:orientation="horizontal">
+                android:orientation="horizontal">
 
 
-            <Button
-                android:id="@+id/btn_xac_nhan_don_hang"
-                android:layout_width="180dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/custom_btn_pale_cream_radius_10dp"
-                android:minHeight="48dp"
-                android:text="Xác nhận"
-                android:textAllCaps="false"
-                android:textColor="#F68422"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText,TouchTargetSizeCheck,TextSizeCheck" />
+                <Button
+                    android:id="@+id/btn_xac_nhan_don_hang"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/custom_btn_pale_cream_radius_10dp"
+                    android:minHeight="48dp"
+                    android:text="@string/all_tv_btn_xacnhan"
+                    android:textAllCaps="false"
+                    android:textColor="#F68422"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck,TextSizeCheck" />
 
-            <Button
-                android:id="@+id/btn_huy_don_hang"
-                android:layout_width="180dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/custom_btn_pale_cream_radius_10dp"
-                android:minHeight="48dp"
-                android:text="Hủy đơn hàng"
-                android:textAllCaps="false"
-                android:textColor="#F68422"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText,TouchTargetSizeCheck,TextSizeCheck" />
+                <Button
+                    android:id="@+id/btn_huy_don_hang"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/custom_btn_pale_cream_radius_10dp"
+                    android:minHeight="48dp"
+                    android:text="@string/all_tv_btn_huydonhang"
+                    android:textAllCaps="false"
+                    android:textColor="#F68422"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck,TextSizeCheck" />
             </LinearLayout>
 
         </RelativeLayout>

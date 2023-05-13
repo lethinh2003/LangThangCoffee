@@ -45,7 +45,7 @@
 
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center_horizontal"
-                    android:text="Danh Sách Đơn Hàng"
+                    android:text="@string/danhsachdonhang_tv_title"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
             </LinearLayout>
@@ -72,7 +72,7 @@
                         android:layout_marginEnd="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/custom_btn_deep_orange_radius_10dp"
-                        android:text="Chờ xác nhận"
+                        android:text="@string/all_tv_title_choxacnhan"
                         android:textAllCaps="false"
                         android:textColor="@color/white" />
 
@@ -83,7 +83,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/custom_btn_pale_cream_radius_10dp"
-                        android:text="Đang giao"
+                        android:text="@string/all_tv_title_danggiao"
                         android:textAllCaps="false"
                         android:textColor="@color/black" />
 
@@ -103,7 +103,7 @@
                         android:layout_marginEnd="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/custom_btn_pale_cream_radius_10dp"
-                        android:text="Hoàn tất"
+                        android:text="@string/all_tv_title_hoantat"
                         android:textAllCaps="false"
                         android:textColor="@color/black" />
 
@@ -114,7 +114,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/custom_btn_pale_cream_radius_10dp"
-                        android:text="Đã hủy"
+                        android:text="@string/all_tv_title_dahuy"
                         android:textAllCaps="false"
                         android:textColor="@color/black" />
                 </LinearLayout>

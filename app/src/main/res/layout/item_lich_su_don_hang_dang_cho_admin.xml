@@ -87,7 +87,7 @@
         android:background="@drawable/custom_btn_pale_cream_radius_10dp"
         android:fontFamily="@font/inter_bold"
         android:padding="15dp"
-        android:text="Hủy đơn hàng"
+        android:text="@string/all_tv_btn_huydonhang"
         android:textAllCaps="false"
         android:textColor="@color/deep_orange"
         android:textStyle="bold" />
@@ -102,7 +102,7 @@
         android:background="@drawable/custom_btn_pale_cream_radius_10dp"
         android:fontFamily="@font/inter_bold"
         android:padding="15dp"
-        android:text="Xác nhận"
+        android:text="@string/all_tv_btn_xacnhan"
         android:textAllCaps="false"
         android:textColor="@color/deep_orange"
         android:textStyle="bold" />

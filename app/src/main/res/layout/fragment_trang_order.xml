@@ -45,7 +45,7 @@
 
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center_horizontal"
-                        android:text="Đặt hàng"
+                        android:text="@string/dathang_tv_title"
                         android:textColor="@color/black"
                         android:textSize="16dp" />
                 </LinearLayout>
@@ -71,7 +71,7 @@
                             android:layout_marginStart="15dp"
                             android:background="@android:color/transparent"
                             android:gravity="left"
-                            android:hint="@string/edt_product_name_search"
+                            android:hint="@string/dathang_tv_hint_timkiem"
                             android:inputType="textNoSuggestions"
                             android:textColorHint="@color/light_silver_gray"
                             android:textSize="16dp"
@@ -103,7 +103,7 @@
                             android:layout_marginEnd="5dp"
                             android:layout_weight="1"
                             android:background="@drawable/custom_btn_deep_orange_radius_10dp"
-                            android:text="@string/caffe"
+                            android:text="@string/dathang_tv_title_caphe"
                             android:textAllCaps="false"
                             android:textColor="@color/white" />
 
@@ -115,7 +115,7 @@
                             android:layout_marginStart="5dp"
                             android:layout_weight="1"
                             android:background="@drawable/custom_btn_pale_cream_radius_10dp"
-                            android:text="@string/MilkTea"
+                            android:text="@string/dathang_tv_title_trasua"
                             android:textColor="@color/black" />
 
                     </LinearLayout>
@@ -134,7 +134,7 @@
                             android:layout_marginEnd="5dp"
                             android:layout_weight="1"
                             android:background="@drawable/custom_btn_pale_cream_radius_10dp"
-                            android:text="@string/Soda"
+                            android:text="@string/dathang_tv_title_soda"
                             android:textAllCaps="false"
                             android:textColor="@color/black" />
 
@@ -146,7 +146,7 @@
                             android:layout_weight="1"
                             android:textAllCaps="false"
                             android:background="@drawable/custom_btn_pale_cream_radius_10dp"
-                            android:text="@string/SweetCake"
+                            android:text="@string/dathang_tv_title_banhngot"
                             android:textColor="@color/black" />
 
 

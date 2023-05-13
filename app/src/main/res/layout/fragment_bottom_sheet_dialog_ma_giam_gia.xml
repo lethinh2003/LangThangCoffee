@@ -25,10 +25,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
 
+            android:layout_centerInParent="true"
             android:fontFamily="@font/roboto_bold"
-            android:text="Mã Giảm Giá"
+            android:text="@string/all_tv_title_magiamgia"
             android:textColor="@color/deep_black"
             android:textSize="16dp" />
 
@@ -64,7 +64,7 @@
                     android:layout_marginStart="15dp"
                     android:background="@android:color/transparent"
                     android:gravity="left"
-                    android:hint="Nhập mã giảm giá"
+                    android:hint="@string/magiamgia_tv_title"
                     android:inputType="textNoSuggestions"
                     android:textColorHint="@color/light_silver_gray"
                     android:textSize="16dp"
@@ -80,7 +80,7 @@
 
                 android:background="@drawable/custom_btn_pale_cream_radius_10dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Áp dụng"
+                android:text="@string/all_tv_title_apdung"
                 android:textAllCaps="false"
                 android:textColor="#F68422"
                 android:textStyle="bold" />

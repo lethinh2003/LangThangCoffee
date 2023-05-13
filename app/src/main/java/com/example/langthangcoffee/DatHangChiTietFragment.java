@@ -79,9 +79,7 @@ public class DatHangChiTietFragment extends Fragment implements FoodOrderTopping
         edtGhiChu = v.findViewById(R.id.edt_note);
         tvQuantityOrder = v.findViewById(R.id.tv_quantity_order);
         Bundle bundle = this.getArguments();
-
         if (bundle != null) {
-
             int idSanPham = bundle.getInt("IDSanPham", 0);
             maSanPham = idSanPham;
             // Fetch API order food detail
@@ -344,6 +342,7 @@ public class DatHangChiTietFragment extends Fragment implements FoodOrderTopping
                                     Picasso.get()
                                             .load(foodOrder.getHinhAnh())
                                             .fit()
+                                            .centerInside()
                                             .into(imgFoodDetail);
 
                                     tvFoodDetailName.setText(foodOrder.getName());

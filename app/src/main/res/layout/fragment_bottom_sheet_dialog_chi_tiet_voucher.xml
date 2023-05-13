@@ -30,7 +30,7 @@
 
             android:layout_centerInParent="true"
             android:fontFamily="@font/roboto_bold"
-            android:text="Chi Tiết Voucher"
+            android:text="@string/chitietvoucher_tv_title"
             android:textColor="@color/deep_black"
             android:textSize="16dp" />
 
@@ -49,68 +49,71 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
+
             <ImageView
                 android:id="@+id/img_voucher"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
-                android:layout_gravity="center_horizontal"
-               />
+                android:layout_gravity="center_horizontal" />
+
             <TextView
                 android:id="@+id/tv_mavoucher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/inter_bold"
-                android:text="VOUCHER 001"
-                android:textColor="@color/black"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+
+                android:fontFamily="@font/inter_bold"
+                android:textColor="@color/black"
                 android:textSize="15dp"
                 android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/tv_saochep"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/inter_medium"
-                android:text="Sao chép"
+                android:text="@string/all_tv_title_saochep"
                 android:textColor="#1540EC"
-                android:layout_gravity="center_horizontal"
-                android:textSize="15dp"
-        />
+                android:textSize="15dp" />
+
             <TextView
                 android:id="@+id/tv_thoigian_hethan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Hết hạn trong 2 ngày nữa"
-                android:fontFamily="@font/inter_medium"
                 android:layout_gravity="center_horizontal"
+
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter_medium"
                 android:textColor="#F68422"
                 android:textSize="15dp" />
+
             <TextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="left"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Mô tả voucher"
+                android:text="@string/chitietvoucher_tv_title_mota"
                 android:textColor="@color/black"
-                android:layout_gravity="left"
                 android:textSize="15dp"
                 android:textStyle="bold" />
+
             <TextView
-android:id="@+id/tv_mota_voucher"
+                android:id="@+id/tv_mota_voucher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/inter_medium"
-                android:text="Giảm giá 50% tổng tiền"
-                android:textColor="@color/black"
                 android:layout_gravity="left"
-                android:textSize="15dp"
-                />
+                android:layout_marginTop="10dp"
+
+                android:fontFamily="@font/inter_medium"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
 
         </LinearLayout>
 

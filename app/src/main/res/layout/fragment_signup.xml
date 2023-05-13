@@ -50,7 +50,7 @@
 
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center_horizontal"
-                        android:text="Thông Tin Khách Hàng"
+                        android:text="@string/signup_tv_title_signup"
                         android:textColor="@color/dim_gray"
                         android:textSize="16dp" />
                 </LinearLayout>
@@ -62,7 +62,7 @@
                     android:layout_marginBottom="@dimen/marginbottom_all_component"
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="left"
-                    android:text="Thông tin cá nhân"
+                    android:text="@string/signup_tv_title_thong_tin_ca_nhan"
                     android:textColor="@color/deep_black"
                     android:textSize="14dp" />
 
@@ -90,7 +90,7 @@
                             android:background="@null"
                             android:backgroundTint="@color/light_silver_gray"
                             android:gravity="left"
-                            android:hint="Tên khách hàng"
+                            android:hint="@string/all_tv_hint_tenkhachhang"
                             android:inputType="text"
                             android:maxLength="12"
                             android:maxLines="1"
@@ -121,7 +121,7 @@
                             android:background="@null"
                             android:backgroundTint="@color/light_silver_gray"
                             android:gravity="left"
-                            android:hint="Họ khách hàng"
+                            android:hint="@string/all_tv_hint_hokhachhang"
                             android:inputType="text"
                             android:maxLength="12"
                             android:maxLines="1"
@@ -182,7 +182,7 @@
                         android:background="@null"
                         android:backgroundTint="@color/light_silver_gray"
                         android:gravity="left"
-                        android:hint="@string/et_phone_number"
+                        android:hint="@string/all_tv_hint_nhapsdt"
                         android:inputType="phone"
                         android:maxLength="12"
                         android:maxLines="1"
@@ -210,7 +210,7 @@
                         android:background="@null"
                         android:backgroundTint="@color/light_silver_gray"
                         android:gravity="left"
-                        android:hint="@string/sign_in_et_password"
+                        android:hint="@string/all_tv_hint_matkhau"
                         android:inputType="textPassword"
                         android:maxLength="12"
                         android:maxLines="1"
@@ -242,7 +242,7 @@
 
                         android:fontFamily="@font/roboto"
                         android:gravity="left"
-                        android:text="Chấp nhận Chính sách"
+                        android:text="@string/signup_tv_title_chinhsach"
                         android:textColor="@color/deep_black"
                         android:textSize="16dp"
                         android:translationY="-10dp" />
@@ -269,7 +269,7 @@
 
                         android:fontFamily="@font/roboto"
                         android:gravity="left"
-                        android:text="Chấp nhận Chương trình Thành Viên"
+                        android:text="@string/signup_tv_title_chuongtrinh"
                         android:textColor="@color/deep_black"
                         android:textSize="16dp"
                         android:translationY="-10dp" />
@@ -284,7 +284,7 @@
                     android:height="@dimen/button_height"
                     android:background="@drawable/btn_not_active_background"
                     android:fontFamily="@font/roboto"
-                    android:text="Tiếp theo"
+                    android:text="@string/signup_tv_btn_tieptheo"
                     android:textAllCaps="false"
 
                     android:textSize="16dp" />

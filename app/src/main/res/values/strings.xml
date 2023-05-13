@@ -5,18 +5,162 @@
 
     <!--    Layout-->
 
+    <string name="all_tv_hint_nhapsdt">Nhập số điện thoại</string>
+    <string name="all_tv_hint_tenkhachhang">Tên khách hàng</string>
+    <string name="all_tv_hint_hokhachhang">Họ khách hàng</string>
+    <string name="all_tv_hint_matkhau">Mật khẩu từ 6 kí tự</string>
+    <string name="all_tv_hint_diachigiaohang">Địa chỉ giao hàng</string>
+    <string name="all_tv_btn_themmoi">Thêm mới</string>
+    <string name="all_tv_btn_capnhat">Cập nhật</string>
+    <string name="all_tv_btn_xoa">Xóa</string>
+    <string name="all_tv_title_size">Size</string>
+    <string name="all_tv_title_chonsize">Chọn 1 loại size</string>
+    <string name="all_tv_title_topping">Topping</string>
+    <string name="all_tv_title_chontopping">Chọn topping</string>
+    <string name="all_tv_title_ghichu">Yêu cầu khác</string>
+    <string name="all_tv_title_motaghichu">Những yêu cầu khác</string>
+    <string name="all_tv_hint_ghichu">Nhập ghi chú</string>
 
+    <string name="all_tv_title_phuongthucgiaohang">Phương thức giao hàng</string>
+    <string name="all_tv_title_phuongthucgiaohang_tannoi">Tận nơi</string>
+    <string name="all_tv_title_thongtingiaohang">Thông tin giao hàng</string>
+    <string name="all_tv_title_sanphamdachon">Sản phẩm đã chọn</string>
+    <string name="all_tv_title_tongcong">Tổng cộng</string>
+    <string name="all_tv_title_thanhtien">Thành tiền</string>
+    <string name="all_tv_title_phigiaohang">Phí giao hàng</string>
+    <string name="all_tv_title_magiamgia">Mã giảm giá</string>
+    <string name="all_tv_title_magiamgia_khongco">Không có</string>
+    <string name="all_tv_title_sotienthanhtoan">Số tiền thanh toán</string>
+    <string name="all_tv_title_phuongthucthanhtoan">Phương thức thanh toán</string>
+    <string name="all_tv_title_phuongthucthanhtoan_tienmat">Tiền mặt</string>
+    <string name="all_tv_title_thaydoi">Thay đổi</string>
+    <string name="all_tv_title_apdung">Áp dụng</string>
+    <string name="all_tv_hint_magiamgia">Nhập mã giảm giá</string>
+
+    <string name="all_tv_hint_nguoinhan">Người nhận</string>
+
+    <string name="all_tv_title_saochep">Sao chép</string>
+
+    <string name="all_tv_title_choxacnhan">Chờ xác nhận</string>
+    <string name="all_tv_title_danggiao">Đang giao</string>
+    <string name="all_tv_title_hoantat">Hoàn tất</string>
+    <string name="all_tv_title_dahuy">Đã hủy</string>
+    <string name="all_tv_title_madonhang">Mã đơn hàng</string>
+    <string name="all_tv_title_chitietdathang">Chi Tiết Đặt Hàng</string>
+    <string name="all_tv_btn_huydonhang">Hủy đơn hàng</string>
+    <string name="all_tv_btn_xacnhan">Xác nhận</string>
+    <string name="all_tv_title_taikhoan">Tài khoản</string>
+    <string name="all_tv_title_donhang">Đơn hàng</string>
+    <string name="all_tv_btn_uploadanh">Upload ảnh</string>
     <!-- Fragment Sign In    -->
     <string name="rl_ln_fragment_dash_board_title">Chào Mừng Bạn Đến Với</string>
     <string name="tv_plus_84">+84</string>
     <string name="tv_vertical_line">|</string>
-    <string name="et_phone_number">Nhập số điện thoại</string>
-    <string name="sign_in_et_password">Mật khẩu từ 6 kí tự</string>
-    <string name="btn_sign_in">Đăng nhập</string>
-    <string name="tv_or"><b>HOẶC</b></string>
-    <string name="tv_sign_in_with_google">Đăng nhập với Google</string>
-    <string name="tv_new_register">Tạo tài khoản mới</string>
+    <string name="signin_tv_btn_sign_in">Đăng nhập</string>
+    <string name="signin_tv_or"><b>HOẶC</b></string>
+    <string name="signin_tv_sign_in_with_google">Đăng nhập với Google</string>
+    <string name="signin_tv_new_register">Tạo tài khoản mới</string>
 
+
+    <!-- Fragment Sign Up    -->
+    <string name="signup_tv_title_signup">Thông Tin Khách Hàng</string>
+    <string name="signup_tv_title_thong_tin_ca_nhan">Thông tin cá nhân</string>
+    <string name="signup_tv_title_chinhsach">Chấp nhận chính sách</string>
+    <string name="signup_tv_title_chuongtrinh">Chấp nhận Chương trình Thành Viên</string>
+    <string name="signup_tv_btn_tieptheo">Tiếp theo</string>
+
+    <!-- Fragment DatHang    -->
+    <string name="dathang_tv_title">Đặt Hàng</string>
+    <string name="dathang_tv_hint_timkiem">Tìm kiếm theo tên sản phẩm</string>
+    <string name="dathang_tv_title_caphe">Cà phê</string>
+    <string name="dathang_tv_title_trasua">Trà sữa</string>
+    <string name="dathang_tv_title_soda">Soda</string>
+    <string name="dathang_tv_title_banhngot">Bánh ngọt</string>
+
+    <!-- Fragment DatHangChiTiet    -->
+    <string name="dathangchitiet_tv_title">Chi Tiết Sản Phẩm</string>
+
+    <!-- Fragment XacNhanDatHang    -->
+    <string name="xacnhandathang_tv_title">Xác Nhận Đặt Hàng</string>
+    <string name="xacnhandathang_tv_btn_dathang">Đặt hàng</string>
+    <string name="xacnhandathang_tv_btn_themmon">Thêm món</string>
+
+
+    <!-- Fragment ThongTinGiaoHang    -->
+    <string name="thongtingiaohang_tv_title">Thông Tin Giao Hàng</string>
+    <string name="thongtingiaohang_tv_title_diachimacdinh">Đặt làm địa chỉ mặc định</string>
+    <string name="thongtingiaohang_tv_hint_nguoinhan">Người nhận</string>
+
+    <!-- Fragment MaGiamGia    -->
+    <string name="magiamgia_tv_title">Mã Giảm Giá</string>
+
+    <!-- Fragment TrangVoucher    -->
+    <string name="voucher_tv_title">Ưu Đãi Của Bạn</string>
+    <string name="voucher_tv_title_voucher">Voucher của bạn</string>
+
+    <!-- Fragment TrangChiTietVoucher    -->
+    <string name="chitietvoucher_tv_title">Chi Tiết Voucher</string>
+    <string name="chitietvoucher_tv_title_mota">Mô tả voucher</string>
+
+
+    <!-- Fragment TrangLichSuDonHang    -->
+    <string name="lichsudonhang_tv_title">Lịch Sử Đơn Hàng</string>
+    <!-- Fragment TrangDanhSachDonHang    -->
+    <string name="danhsachdonhang_tv_title">Danh Sách Đơn Hàng</string>
+
+    <!-- Fragment TrangCaNhan    -->
+    <string name="trangcanhan_tv_title">Trang Cá Nhân</string>
+    <string name="trangcanhan_tv_title_lichsudonhang">Lịch sử đơn hàng</string>
+    <string name="trangcanhan_tv_title_danhsachuudai">Danh sách ưu đãi</string>
+    <string name="trangcanhan_tv_title_thongtincanhan">Thông tin cá nhân</string>
+    <string name="trangcanhan_tv_title_thaydoimatkhau">Thay đổi mật khẩu</string>
+    <string name="trangcanhan_tv_title_dangxuat">Đăng xuất</string>
+    <string name="trangcanhan_tv_title_lienhe">Liên hệ</string>
+    <string name="trangcanhan_tv_title_tienich">Tiện ích</string>
+    <string name="trangcanhan_tv_title_hotro">Hỗ trợ</string>
+
+
+    <!-- Fragment TrangQuanLy    -->
+    <string name="trangquanly_tv_title">Trang Quản Lý</string>
+    <string name="trangquanly_tv_title_danhsachdonhang">Danh sách đơn hàng</string>
+    <string name="trangquanly_tv_title_danhsachtaikhoan">Danh sách tài khoản</string>
+    <string name="trangquanly_tv_title_danhsachsanpham">Danh sách sản phẩm</string>
+    <string name="trangquanly_tv_title_sanpham">Sản phẩm</string>
+    <string name="trangquanly_tv_title_voucher">Voucher</string>
+    <string name="trangquanly_tv_title_danhsachvoucher">Danh sách voucher</string>
+    <string name="trangquanly_tv_title_thongke">Thống kê</string>
+    <string name="trangquanly_tv_title_doanhthu">Doanh thu</string>
+
+    <!-- Fragment LienHe  -->
+    <string name="lienhe_tv_title">Liên Hệ</string>
+    <string name="lienhe_tv_title_sdt">Số điện thoại</string>
+    <string name="lienhe_tv_title_email">Email</string>
+    <string name="lienhe_tv_title_phienbanungdung">Phiên bản ứng dụng</string>
+
+
+    <!-- Fragment TrangQuanLyVoucher    -->
+    <string name="trangquanlyvoucher_tv_title">Danh Sách Voucher</string>
+
+    <string name="trangquanlyvoucher_tv_hint_timkiem">Tìm kiếm theo mã voucher</string>
+    <string name="trangquanlyvoucher_tv_title_themvoucher">Thêm Voucher</string>
+    <string name="trangquanlyvoucher_tv_hint_mavoucher">Mã voucher</string>
+    <string name="trangquanlyvoucher_tv_title_randommavoucher">Random mã voucher</string>
+    <string name="trangquanlyvoucher_tv_title_alltaikhoan">Tất cả người dùng</string>
+
+
+    <!-- Fragment TrangQuanLyTaiKhoan    -->
+    <string name="trangquanlytaikhoan_tv_title_themtaikhoan">Thêm Tài Khoản</string>
+    <string name="trangquanlytaikhoan_tv_title_chitiettaikhoan">Chi Tiết Tài Khoản</string>
+    <string name="trangquanlytaikhoan_tv_title_danhsachtaikhoan">Danh Sách Tài Khoản</string>
+    <string name="trangquanlytaikhoan_tv_hint_timkiem">Tìm kiếm theo số điện thoại</string>
+    <!-- Fragment TrangQuanLySanPham    -->
+    <string name="trangquanlysanpham_tv_title_danhsachsanpham">Danh Sách Sản Phẩm</string>
+    <string name="trangquanlysanpham_tv_title_themsanpham">Thêm Sản Phẩm</string>
+    <string name="trangquanlysanpham_tv_title_danhmuc">Danh mục</string>
+    <string name="trangquanlysanpham_tv_title_themsize">Thêm size</string>
+    <string name="trangquanlysanpham_tv_title_themtopping">Thêm topping</string>
+    <string name="trangquanlysanpham_tv_hint_tensanpham">Tên sản phẩm</string>
+    <string name="trangquanlysanpham_tv_hint_motasanpham">Mô tả sản phẩm</string>
     <!-- First page of Dash Board-->
     <string name="ln_page_1_dash_board_title">#Welcome to</string>
     <string name="ln_page_1_dash_board_btn">Trải nghiệm</string>

@@ -1,11 +1,16 @@
 package com.example.langthangcoffee;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FoodOrder {
     public static final int TYPE_CAFE = 1;
     public static final int TYPE_SODA = 2;
     public static final int TYPE_TRASUA = 3;
     public static final int TYPE_SWEETCAKE = 4;
-private String hinhAnh;
+    private String hinhAnh;
+    private String tenDanhMuc;
+    private int maDanhMuc;
 
     private int image;
     private String name;
@@ -14,8 +19,54 @@ private String hinhAnh;
     private int type;
     private boolean favorite;
     private String desc;
+    private List<KichThuocSanPham> kichThuocSanPhamList = new ArrayList<>();
+    private List<ToppingSanPham> toppingSanPhams = new ArrayList<>();
 
     public FoodOrder() {
+    }
+    public FoodOrder(FoodOrder foodOrder) {
+        this.hinhAnh = foodOrder.hinhAnh;
+        this.tenDanhMuc = foodOrder.tenDanhMuc;
+        this.name = foodOrder.name;
+        this.id = foodOrder.id;
+        this.price = foodOrder.price;
+        this.type = foodOrder.type;
+        this.desc = foodOrder.desc;
+        this.maDanhMuc = foodOrder.maDanhMuc;
+        this.kichThuocSanPhamList = new ArrayList<>(foodOrder.kichThuocSanPhamList);
+        this.toppingSanPhams = new ArrayList<>(foodOrder.toppingSanPhams);
+    }
+
+    public int getMaDanhMuc() {
+        return maDanhMuc;
+    }
+
+    public void setMaDanhMuc(int maDanhMuc) {
+        this.maDanhMuc = maDanhMuc;
+    }
+
+    public List<KichThuocSanPham> getKichThuocSanPhamList() {
+        return kichThuocSanPhamList;
+    }
+
+    public List<ToppingSanPham> getToppingSanPhams() {
+        return toppingSanPhams;
+    }
+
+    public void setKichThuocSanPhamList(List<KichThuocSanPham> kichThuocSanPhamList) {
+        this.kichThuocSanPhamList = kichThuocSanPhamList;
+    }
+
+    public void setToppingSanPhams(List<ToppingSanPham> toppingSanPhams) {
+        this.toppingSanPhams = toppingSanPhams;
+    }
+
+    public void setTenDanhMuc(String tenDanhMuc) {
+        this.tenDanhMuc = tenDanhMuc;
+    }
+
+    public String getTenDanhMuc() {
+        return tenDanhMuc;
     }
 
     public void setHinhAnh(String hinhAnh) {

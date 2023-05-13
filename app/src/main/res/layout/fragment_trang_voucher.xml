@@ -51,7 +51,7 @@
 
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center_horizontal"
-                        android:text="Ưu Đãi Của Bạn"
+                        android:text="@string/voucher_tv_title"
                         android:textColor="@color/black"
                         android:textSize="16dp" />
                 </LinearLayout>
@@ -70,7 +70,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
-                        android:text="Voucher của bạn"
+                        android:text="@string/voucher_tv_title_voucher"
                         android:textColor="@color/all_title"
                         android:textSize="@dimen/textsize_all_bigtitle"
                         android:textStyle="bold" />

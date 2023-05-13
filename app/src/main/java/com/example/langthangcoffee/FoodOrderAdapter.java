@@ -45,6 +45,7 @@ public class FoodOrderAdapter extends RecyclerView.Adapter<FoodOrderAdapter.Food
         Picasso.get()
                 .load(foodOrder.getHinhAnh())
                 .fit()
+                .centerInside()
                 .into(holder.imageView);
 
         holder.tvName.setText(foodOrder.getName());
