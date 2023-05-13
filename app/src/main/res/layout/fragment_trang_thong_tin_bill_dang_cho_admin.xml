@@ -9,6 +9,7 @@
         android:id="@+id/rl_navigation_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_alignParentTop="true">
 
         <ImageView
@@ -46,14 +47,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:padding="@dimen/padding_all_component"
             android:paddingBottom="20dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+
                 android:fontFamily="@font/inter_bold"
                 android:text="@string/all_tv_title_taikhoan"
                 android:textColor="@color/deep_black"
@@ -65,9 +67,9 @@
                 android:id="@+id/tv_taikhoan_don_hang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+
                 android:fontFamily="@font/inter_medium"
 
                 android:textColor="@color/deep_black"
@@ -78,9 +80,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+
                 android:fontFamily="@font/inter_bold"
                 android:text="@string/all_tv_title_madonhang"
                 android:textColor="@color/deep_black"
@@ -92,9 +94,9 @@
                 android:id="@+id/tv_ma_don_hang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+
                 android:fontFamily="@font/inter_medium"
 
                 android:textColor="@color/deep_black"
@@ -105,9 +107,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+
                 android:fontFamily="@font/inter_bold"
                 android:text="@string/all_tv_title_phuongthucgiaohang"
                 android:textColor="@color/deep_black"
@@ -119,9 +121,9 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+
                 android:fontFamily="@font/inter_medium"
                 android:text="@string/all_tv_title_phuongthucgiaohang_tannoi"
                 android:textColor="@color/deep_black"
@@ -132,9 +134,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+
                 android:fontFamily="@font/inter_bold"
                 android:text="@string/all_tv_title_thongtingiaohang"
                 android:textColor="@color/deep_black"
@@ -146,9 +148,9 @@
                 android:id="@+id/tv_info_ship_order"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+
                 android:fontFamily="@font/inter_medium"
                 android:textColor="@color/deep_black"
                 android:textSize="15dp"
@@ -157,9 +159,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+
+                android:layout_marginBottom="@dimen/marginbottom_all_component"
+
                 android:fontFamily="@font/inter_bold"
                 android:text="@string/all_tv_title_sanphamdachon"
                 android:textColor="@color/deep_black"
@@ -167,23 +170,31 @@
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcv_order_history"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="10dp"
+                android:layout_gravity="center"
 
-                />
+
+                android:layout_marginBottom="@dimen/marginbottom_all_component">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_order_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+
+
+                    />
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+
                 android:fontFamily="@font/inter_bold"
                 android:text="@string/all_tv_title_tongcong"
                 android:textColor="@color/deep_black"
@@ -194,9 +205,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+
                 android:background="@drawable/layout_border_top_bottom"
                 android:orientation="horizontal"
                 android:paddingBottom="10dp"
@@ -230,9 +241,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+
                 android:background="@drawable/layout_border_top_bottom"
                 android:orientation="horizontal"
                 android:paddingBottom="10dp"
@@ -267,9 +278,9 @@
                 android:id="@+id/ln_magiamgia_xacnhan_dathang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+
                 android:background="@drawable/layout_border_top_bottom"
                 android:orientation="horizontal"
                 android:paddingBottom="10dp"
@@ -303,9 +314,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+
                 android:orientation="horizontal"
                 android:weightSum="2">
 
@@ -336,9 +347,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+
                 android:fontFamily="@font/inter_bold"
                 android:text="@string/all_tv_title_phuongthucthanhtoan"
                 android:textColor="@color/deep_black"
@@ -350,9 +361,9 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+
                 android:fontFamily="@font/inter_medium"
                 android:text="@string/all_tv_title_phuongthucthanhtoan_tienmat"
                 android:textColor="@color/deep_black"
@@ -408,7 +419,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/custom_btn_pale_cream_radius_10dp"
                     android:minHeight="48dp"

@@ -8,6 +8,7 @@
     <RelativeLayout
         android:id="@+id/rl_navigation_top"
         android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true">
 
@@ -46,15 +47,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:padding="@dimen/padding_all_component"
             android:paddingBottom="20dp">
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+                
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+               
                 android:fontFamily="@font/inter_bold"
                 android:text="@string/lienhe_tv_title_sdt"
                 android:textColor="@color/deep_black"
@@ -66,9 +68,9 @@
                 android:id="@+id/tv_ma_don_hang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+               
                 android:fontFamily="@font/inter_medium"
                 android:text="0369084341"
                 android:textColor="@color/deep_black"
@@ -79,9 +81,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+                
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+               
                 android:fontFamily="@font/inter_bold"
                 android:text="@string/lienhe_tv_title_email"
                 android:textColor="@color/deep_black"
@@ -93,9 +95,9 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+               
                 android:fontFamily="@font/inter_medium"
                 android:text="langthangcoffee@gmail.com"
                 android:textColor="@color/deep_black"
@@ -106,9 +108,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+                
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+               
                 android:fontFamily="@font/inter_bold"
                 android:text="@string/lienhe_tv_title_phienbanungdung"
                 android:textColor="@color/deep_black"
@@ -120,9 +122,9 @@
                 android:id="@+id/tv_info_ship_order"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+               
                 android:fontFamily="@font/inter_medium"
                 android:text="1.0.0"
                 android:textColor="@color/deep_black"

@@ -5,8 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment_menu_tool_bar.MainActivity">
+    <RelativeLayout
+        android:id="@+id/rl_navigation_top"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
 
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/back_icon"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/trangquanlyvoucher_tv_title_themvoucher"
+            android:textColor="@color/deep_black"
+            android:textSize="16dp" />
+
+    </RelativeLayout>
     <ScrollView
+        android:layout_below="@id/rl_navigation_top"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -21,39 +51,10 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/background_border_top"
                 android:orientation="vertical"
-                android:padding="@dimen/margin_all_component"
+                android:padding="@dimen/padding_all_component"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="@dimen/marginbottom_all_component"
-                    android:orientation="horizontal"
 
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:id="@+id/img_back"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/back_icon"
-                        android:fontFamily="@font/roboto_bold"
-                        android:text="Back"
-                        android:textColor="@color/dim_gray"
-                        android:textSize="16dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-
-                        android:fontFamily="@font/roboto_bold"
-                        android:gravity="center_horizontal"
-                        android:text="@string/trangquanlyvoucher_tv_title_themvoucher"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ll_navbot_canhan"
@@ -65,7 +66,8 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_all_in_component"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
                         android:background="@drawable/layout_phone_number_bg_uncheck">
 
@@ -74,7 +76,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:layout_marginStart="15dp"
+
                             android:background="@android:color/transparent"
                             android:gravity="left"
                             android:hint="@string/trangquanlyvoucher_tv_hint_mavoucher"
@@ -88,16 +90,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
-                        android:padding="@dimen/padding_all_component"
+
                         tools:ignore="ExtraText">
 
                         <CheckBox
                             android:id="@+id/chk_select_random_voucher"
-                            android:layout_width="20sp"
-                            android:layout_height="20sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:background="@drawable/custom_chkb_deep_orange_bg"
-                            android:button="@android:color/transparent"
+
 
                             tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
@@ -127,16 +128,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
-                        android:padding="@dimen/padding_all_component"
+
                         tools:ignore="ExtraText">
 
                         <CheckBox
                             android:id="@+id/chk_select_tatca_taikhoan"
-                            android:layout_width="20sp"
-                            android:layout_height="20sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:background="@drawable/custom_chkb_deep_orange_bg"
-                            android:button="@android:color/transparent"
+
 
                             tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
@@ -170,6 +170,7 @@
                         android:layout_height="wrap_content"
                         app:offset="3"
                         app:pickerMode="dayFirst"
+                        android:layout_marginBottom="@dimen/margin_all_component"
                         app:textSize="19" />
 
 

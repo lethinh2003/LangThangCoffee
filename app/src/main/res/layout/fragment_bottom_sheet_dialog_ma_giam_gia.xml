@@ -47,13 +47,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:padding="@dimen/padding_all_component"
             android:paddingBottom="20dp">
 
 
             <RelativeLayout
+                android:layout_marginBottom="@dimen/marginbottom_all_component"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_margin="20dp"
+                android:layout_height="wrap_content"
+            android:padding="@dimen/padding_all_in_component"
                 android:background="@drawable/layout_phone_number_bg_uncheck">
 
                 <EditText
@@ -61,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="15dp"
+
                     android:background="@android:color/transparent"
                     android:gravity="left"
                     android:hint="@string/magiamgia_tv_title"

@@ -40,22 +40,23 @@
         android:layout_height="match_parent"
 
         android:layout_below="@id/rl_navigation_top"
-        android:layout_marginTop="20dp"
+       
 
         tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/padding_all_component"
             android:orientation="vertical">
 
 
             <RelativeLayout
 
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_height="wrap_content"
+           android:padding="@dimen/padding_all_in_component"
+               
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/layout_phone_number_bg_uncheck">
 
@@ -64,7 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="15dp"
+
                     android:background="@android:color/transparent"
                     android:gravity="left"
                     android:hint="@string/thongtingiaohang_tv_hint_nguoinhan"
@@ -76,9 +77,10 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_all_in_component"
+           
+               
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/layout_phone_number_bg_uncheck">
 
@@ -87,11 +89,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="15dp"
+
                     android:background="@android:color/transparent"
                     android:gravity="left"
                     android:hint="@string/all_tv_hint_nhapsdt"
-                    android:inputType="textNoSuggestions"
+                    android:inputType="phone"
                     android:textColorHint="@color/light_silver_gray"
                     android:textSize="16dp"
                     tools:ignore="Autofill,RtlHardcoded,TouchTargetSizeCheck,VisualLintTextFieldSize,TextContrastCheck" />
@@ -99,9 +101,9 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_height="wrap_content"
+           android:padding="@dimen/padding_all_in_component"
+               
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/layout_phone_number_bg_uncheck">
 
@@ -110,7 +112,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="15dp"
+
                     android:background="@android:color/transparent"
                     android:gravity="left"
                     android:hint="@string/all_tv_hint_diachigiaohang"
@@ -123,19 +125,17 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+           
+               
                 android:layout_marginBottom="15dp"
 
                 tools:ignore="ExtraText">
 
                 <CheckBox
                     android:id="@+id/chk_default_address"
-                    android:layout_width="20sp"
-                    android:layout_height="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/custom_chkb_deep_orange_bg"
-                    android:button="@android:color/transparent"
 
                     tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 

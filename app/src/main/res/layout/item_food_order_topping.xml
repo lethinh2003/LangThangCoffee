@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:layout_margin="@dimen/padding_all_component"
+
     >
 
     <RelativeLayout
@@ -15,11 +15,9 @@
 
         <CheckBox
             android:id="@+id/chk_select_topping"
-            android:layout_width="20sp"
-            android:layout_height="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:background="@drawable/custom_chkb_deep_orange_bg"
-            android:button="@android:color/transparent"
 
             tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 

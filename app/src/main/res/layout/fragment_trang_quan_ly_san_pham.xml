@@ -5,8 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment_menu_tool_bar.MainActivity">
+    <RelativeLayout
+        android:id="@+id/rl_navigation_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true">
 
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/back_icon"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/trangquanlysanpham_tv_title_danhsachsanpham"
+            android:textColor="@color/deep_black"
+            android:textSize="16dp" />
+
+    </RelativeLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_below="@id/rl_navigation_top"
             android:layout_width="match_parent"
             android:layout_height="700dp"
             android:layout_alignParentBottom="true"
@@ -17,38 +46,10 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/background_border_top"
                 android:orientation="vertical"
-                android:padding="@dimen/margin_all_component"
+                android:padding="@dimen/padding_all_component"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="@dimen/marginbottom_all_component"
-                    android:orientation="horizontal"
 
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:id="@+id/img_back"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/back_icon"
-                        android:fontFamily="@font/roboto_bold"
-                        android:text="Back"
-                        android:textColor="@color/dim_gray"
-                        android:textSize="16dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:fontFamily="@font/roboto_bold"
-                        android:gravity="center_horizontal"
-                        android:text="@string/trangquanlysanpham_tv_title_danhsachsanpham"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ll_navbot_canhan"
@@ -57,10 +58,13 @@
 
                     android:orientation="vertical">
 
-                    <RelativeLayout
+                    <com.google.android.flexbox.FlexboxLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/marginbottom_all_component"
+                        android:padding="@dimen/padding_all_in_component"
+                        app:alignItems="center"
+                        app:justifyContent="space_between"
                         android:background="@drawable/layout_phone_number_bg_uncheck">
 
                         <EditText
@@ -68,9 +72,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:layout_marginStart="15dp"
                             android:background="@android:color/transparent"
                             android:gravity="left"
+                            app:layout_flexBasisPercent="80%"
                             android:hint="@string/edt_product_name_search"
                             android:inputType="textNoSuggestions"
                             android:textColorHint="@color/light_silver_gray"
@@ -86,7 +90,7 @@
                             android:layout_marginEnd="10dp"
                             android:background="@drawable/ic_search"
                             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-                    </RelativeLayout>
+                    </com.google.android.flexbox.FlexboxLayout>
                     <Button
                         android:id="@+id/btn_them_moi"
                         android:layout_width="wrap_content"

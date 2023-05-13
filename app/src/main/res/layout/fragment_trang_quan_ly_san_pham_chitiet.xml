@@ -9,6 +9,7 @@
         android:id="@+id/rl_navigation_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_alignParentTop="true">
 
         <ImageView
@@ -82,170 +83,170 @@
 
             </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp">
+                android:orientation="vertical"
+                android:padding="@dimen/padding_all_component">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="20dp">
+
+                    <EditText
+                        android:id="@+id/edt_ten_san_pham"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/inter_medium"
+                        android:hint="@string/trangquanlysanpham_tv_hint_tensanpham"
+                        android:textColor="@color/deep_black"
+                        android:textSize="26dp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                </RelativeLayout>
 
                 <EditText
-                    android:id="@+id/edt_ten_san_pham"
+                    android:id="@+id/edt_motasanpham"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="10dp"
+
+                    android:fontFamily="@font/inter_medium"
+
+                    android:hint="@string/trangquanlysanpham_tv_hint_motasanpham"
+                    android:textColor="@color/deep_black"
+                    android:textSize="15dp" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+
+                    android:layout_marginTop="20dp"
+
                     android:fontFamily="@font/inter_medium"
-                    android:hint="@string/trangquanlysanpham_tv_hint_tensanpham"
+                    android:text="@string/trangquanlysanpham_tv_title_danhmuc"
                     android:textColor="@color/deep_black"
-                    android:textSize="26dp"
+                    android:textSize="23dp"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
 
-            </RelativeLayout>
-
-            <EditText
-                android:id="@+id/edt_motasanpham"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
-                android:fontFamily="@font/inter_medium"
-
-                android:hint="@string/trangquanlysanpham_tv_hint_motasanpham"
-                android:textColor="@color/deep_black"
-                android:textSize="15dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/trangquanlysanpham_tv_title_danhmuc"
-                android:textColor="@color/deep_black"
-                android:textSize="23dp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-
-            <Spinner
-                android:id="@+id/spinner_danhmucsanpham"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="20dp"
-
-                android:textColor="@android:color/black" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/all_tv_title_size"
-                android:textColor="@color/deep_black"
-                android:textSize="23dp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center">
-
-                <RadioGroup
-                    android:id="@+id/rg_size"
+                <Spinner
+                    android:id="@+id/spinner_danhmucsanpham"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp">
+
+                    android:layout_marginTop="15dp"
+
+
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="@dimen/marginbottom_all_component"
+
+                    android:fontFamily="@font/inter_medium"
+                    android:text="@string/all_tv_title_size"
+                    android:textColor="@color/deep_black"
+                    android:textSize="23dp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <RadioGroup
+                        android:id="@+id/rg_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rcv_select_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center_horizontal"
+
+
+                            />
+                    </RadioGroup>
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btn_them_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/custom_btn_pale_cream_radius_10dp"
+                    android:minHeight="48dp"
+                    android:text="@string/trangquanlysanpham_tv_title_themsize"
+                    android:textAllCaps="false"
+                    android:textColor="#F68422"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck,TextSizeCheck" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="@dimen/marginbottom_all_component"
+
+                    android:fontFamily="@font/inter_medium"
+                    android:text="@string/all_tv_title_topping"
+                    android:textColor="@color/deep_black"
+                    android:textSize="23dp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                  >
+
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rcv_select_size"
+                        android:id="@+id/rcv_select_topping"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_centerHorizontal="true"
                         android:layout_gravity="center_horizontal"
-
-                        android:layout_marginTop="15dp"
-                        android:layout_marginEnd="10dp"
-
                         />
-                </RadioGroup>
-            </RelativeLayout>
+                </RelativeLayout>
 
-            <Button
-                android:id="@+id/btn_them_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/custom_btn_pale_cream_radius_10dp"
-                android:minHeight="48dp"
-                android:text="@string/trangquanlysanpham_tv_title_themsize"
-                android:textAllCaps="false"
-                android:textColor="#F68422"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText,TouchTargetSizeCheck,TextSizeCheck" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/all_tv_title_topping"
-                android:textColor="@color/deep_black"
-                android:textSize="23dp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
-
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcv_select_topping"
+                <Button
+                    android:id="@+id/btn_them_topping"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="15dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
-
-                    />
-            </RelativeLayout>
-            <Button
-                android:id="@+id/btn_them_topping"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/custom_btn_pale_cream_radius_10dp"
-                android:minHeight="48dp"
-                android:padding="10dp"
-                android:text="@string/trangquanlysanpham_tv_title_themtopping"
-                android:textAllCaps="false"
-                android:textColor="#F68422"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText,TouchTargetSizeCheck,TextSizeCheck" />
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/custom_btn_pale_cream_radius_10dp"
+                    android:minHeight="48dp"
+                    android:padding="10dp"
+                    android:text="@string/trangquanlysanpham_tv_title_themtopping"
+                    android:textAllCaps="false"
+                    android:textColor="#F68422"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck,TextSizeCheck" />
 
 
+            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>
@@ -261,8 +262,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:layout_alignParentTop="true">
+            android:layout_alignParentTop="true"
+            android:layout_weight="2">
+
             <Button
                 android:id="@+id/btn_xoa_san_pham"
                 android:layout_width="wrap_content"
@@ -271,9 +273,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:padding="10dp"
                 android:background="@drawable/custom_btn_pale_cream_radius_10dp"
                 android:minHeight="48dp"
+                android:padding="10dp"
                 android:text="@string/all_tv_btn_xoa"
                 android:textAllCaps="false"
                 android:textColor="#F68422"

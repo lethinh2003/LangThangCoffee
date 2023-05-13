@@ -64,7 +64,7 @@
 
     <!-- Fragment Sign Up    -->
     <string name="signup_tv_title_signup">Thông Tin Khách Hàng</string>
-    <string name="signup_tv_title_thong_tin_ca_nhan">Thông tin cá nhân</string>
+    <string name="signup_tv_title_thong_tin_ca_nhan">Thông Tin Cá Nhân</string>
     <string name="signup_tv_title_chinhsach">Chấp nhận chính sách</string>
     <string name="signup_tv_title_chuongtrinh">Chấp nhận Chương trình Thành Viên</string>
     <string name="signup_tv_btn_tieptheo">Tiếp theo</string>
@@ -117,6 +117,9 @@
     <string name="trangcanhan_tv_title_dangxuat">Đăng xuất</string>
     <string name="trangcanhan_tv_title_lienhe">Liên hệ</string>
     <string name="trangcanhan_tv_title_tienich">Tiện ích</string>
+    <string name="trangcanhan_tv_title_doimatkhau">Thay Đổi Mật Khẩu</string>
+    <string name="trangcanhan_tv_hint_matkhauhientai">Mật khẩu hiện tại</string>
+    <string name="trangcanhan_tv_hint_matkhaumoi">Mật khẩu mới</string>
     <string name="trangcanhan_tv_title_hotro">Hỗ trợ</string>
 
 

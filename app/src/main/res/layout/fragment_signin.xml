@@ -32,6 +32,7 @@
                 android:layout_marginTop="-20dp"
                 android:background="@drawable/background_border_top"
                 android:orientation="vertical"
+                android:padding="@dimen/padding_all_component"
                 app:layout_constraintTop_toBottomOf="@+id/imageView">
 
                 <TextView
@@ -55,122 +56,127 @@
                     android:textColor="@color/black"
                     android:textSize="32dp" />
 
-                <RelativeLayout
+                <com.google.android.flexbox.FlexboxLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="@dimen/margin_all_component"
-                    android:layout_marginEnd="@dimen/margin_all_component"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/marginbottom_all_component"
-                    android:background="@drawable/layout_phone_number_bg_uncheck">
+                    android:background="@drawable/layout_phone_number_bg_uncheck"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_all_in_component"
+                    app:alignItems="center"
+                    app:justifyContent="space_between">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
-
-                        android:weightSum="4">
-
+                        app:layout_flexBasisPercent="30%">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:layout_centerVertical="true"
                             android:layout_gravity="center"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginRight="15dp"
+                            android:layout_marginRight="@dimen/marginright_all_in_component"
                             android:src="@drawable/img_vietnam_flag"
-
                             tools:ignore="ContentDescription" />
 
                         <TextView
-                            android:id='@+id/tv_plus_84'
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/marginright_all_in_component"
                             android:gravity="center"
                             android:text="@string/tv_plus_84"
-                            android:textColor="@color/light_silver_gray"
-                            android:textSize="20sp" />
 
-                        <TextView
+                            android:textColor="@color/light_silver_gray"
+                            android:textSize="16dp" />
+
+                        <ImageView
                             android:id='@+id/tv_vertical_line'
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="10dp"
-                            android:text="@string/tv_vertical_line"
-                            android:textColor="#EAEAEA"
-                            android:textSize="40sp" />
 
-                        <EditText
-                            android:id='@+id/edt_phone_number'
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:background="@android:color/transparent"
-                            android:gravity="left"
-                            android:hint="@string/all_tv_hint_nhapsdt"
-                            android:inputType="textNoSuggestions"
-                            android:textColorHint="@color/light_silver_gray"
-android:textColor="@color/black"
-                            tools:ignore="TouchTargetSizeCheck" />
+                            android:layout_marginRight="@dimen/marginright_all_in_component"
+
+
+                            android:background="@drawable/line"
+                            android:textColor="@color/light_silver_gray"
+
+                            tools:srcCompat="@drawable/line" />
                     </LinearLayout>
 
-                </RelativeLayout>
+                    <EditText
+                        android:id='@+id/edt_phone_number'
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:backgroundTint="@color/light_silver_gray"
+                        android:gravity="left"
+                        android:hint="@string/all_tv_hint_nhapsdt"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:textColorHint="@color/light_silver_gray"
+                        android:textSize="16dp"
+                        app:layout_flexBasisPercent="70%"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </com.google.android.flexbox.FlexboxLayout>
 
 
-                <LinearLayout
+                <com.google.android.flexbox.FlexboxLayout
                     android:id="@+id/ln_password"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/button_height"
-                    android:layout_marginStart="@dimen/margin_all_component"
-                    android:layout_marginEnd="@dimen/margin_all_component"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/layout_phone_number_bg_uncheck"
                     android:orientation="horizontal"
-                    android:padding="@dimen/marginbottom_all_component">
+                    android:padding="@dimen/padding_all_in_component"
+                    app:alignItems="center"
+                    app:justifyContent="space_between">
 
 
                     <EditText
                         android:id='@+id/edt_password'
-                        android:layout_width="266dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="@dimen/margin_all_component"
+                        android:layout_marginRight="@dimen/marginright_all_in_component"
                         android:background="@null"
                         android:backgroundTint="@color/light_silver_gray"
                         android:gravity="left"
                         android:hint="@string/all_tv_hint_matkhau"
                         android:inputType="textPassword"
-                        android:maxLength="12"
                         android:maxLines="1"
                         android:textColor="@color/black"
-                        android:textColorHint="@color/light_silver_gray" />
+                        android:textColorHint="@color/light_silver_gray"
+                        android:textSize="16dp"
+                        app:layout_flexBasisPercent="80%"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                </LinearLayout>
+                    <ImageView
+                        android:clickable="true"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/showpassword"
+                        app:layout_flexBasisPercent="20%"
+                        tools:ignore="ContentDescription" />
+                </com.google.android.flexbox.FlexboxLayout>
 
                 <Button
                     android:id="@+id/btn_sign_in"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_all_component"
-                    android:layout_marginEnd="@dimen/margin_all_component"
                     android:layout_marginBottom="@dimen/marginbottom_all_component"
-                    android:height="@dimen/button_height"
                     android:background="@drawable/btn_not_active_background"
+                    android:clickable="true"
                     android:fontFamily="@font/roboto"
+                    android:padding="@dimen/padding_all_in_component"
                     android:text="@string/signin_tv_btn_sign_in"
                     android:textAllCaps="false"
-
-                    android:textSize="16dp" />
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="@dimen/marginbottom_all_component"
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
                     android:text="@string/signin_tv_or"
@@ -179,40 +185,42 @@ android:textColor="@color/black"
                     android:textSize="16dp" />
 
                 <LinearLayout
+                    android:clickable="true"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/button_height"
-                    android:layout_marginStart="@dimen/margin_all_component"
-                    android:layout_marginEnd="@dimen/margin_all_component"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/marginbottom_all_component"
                     android:background="@drawable/layout_phone_number_bg_uncheck"
                     android:gravity="center"
-                    android:orientation="horizontal">
+
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_all_in_component">
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
+                        android:layout_marginRight="@dimen/marginright_all_in_component"
                         android:src="@drawable/img_icon_google"
                         tools:ignore="ContentDescription" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
                         android:text="@string/signin_tv_sign_in_with_google"
                         android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textSize="16dp" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:clickable="true"
                     android:id="@+id/ln_sign_up"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/button_height"
-                    android:layout_marginStart="@dimen/margin_all_component"
-                    android:layout_marginEnd="@dimen/margin_all_component"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/layout_phone_number_bg_uncheck"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_all_in_component">
 
 
                     <TextView
@@ -220,6 +228,7 @@ android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/signin_tv_new_register"
+                        android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="16dp" />
                 </LinearLayout>
