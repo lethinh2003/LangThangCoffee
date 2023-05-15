@@ -51,6 +51,8 @@
     <string name="all_tv_title_chitietdathang">Chi Tiết Đặt Hàng</string>
     <string name="all_tv_btn_huydonhang">Hủy đơn hàng</string>
     <string name="all_tv_btn_xacnhan">Xác nhận</string>
+    <string name="all_tv_btn_hoantat">Hoàn tất</string>
+
     <string name="all_tv_title_taikhoan">Tài khoản</string>
     <string name="all_tv_title_donhang">Đơn hàng</string>
     <string name="all_tv_btn_uploadanh">Upload ảnh</string>
@@ -70,6 +72,9 @@
     <string name="signup_tv_title_chinhsach">Chấp nhận chính sách</string>
     <string name="signup_tv_title_chuongtrinh">Chấp nhận Chương trình Thành Viên</string>
     <string name="signup_tv_btn_tieptheo">Tiếp theo</string>
+
+    <!-- Fragment DanhSachYeuThich    -->
+    <string name="danhsachyeuthich_tv_title">Danh Sách Yêu Thích</string>
 
     <!-- Fragment DatHang    -->
     <string name="dathang_tv_title">Đặt Hàng</string>
@@ -114,6 +119,7 @@
     <string name="trangcanhan_tv_title">Trang Cá Nhân</string>
     <string name="trangcanhan_tv_title_lichsudonhang">Lịch sử đơn hàng</string>
     <string name="trangcanhan_tv_title_danhsachuudai">Danh sách ưu đãi</string>
+    <string name="trangcanhan_tv_title_danhsachyeuthich">Danh sách sản phẩm yêu thích</string>
     <string name="trangcanhan_tv_title_thongtincanhan">Thông tin cá nhân</string>
     <string name="trangcanhan_tv_title_thaydoimatkhau">Thay đổi mật khẩu</string>
     <string name="trangcanhan_tv_title_dangxuat">Đăng xuất</string>
@@ -133,15 +139,29 @@
     <string name="trangquanly_tv_title_sanpham">Sản phẩm</string>
     <string name="trangquanly_tv_title_voucher">Voucher</string>
     <string name="trangquanly_tv_title_danhsachvoucher">Danh sách voucher</string>
+    <string name="trangquanly_tv_title_danhsachloaivoucher">Danh sách loại voucher</string>
+
     <string name="trangquanly_tv_title_thongke">Thống kê</string>
     <string name="trangquanly_tv_title_doanhthu">Doanh thu</string>
 
+    <!-- Fragment DoanhThu  -->
+    <string name="doanhthu_tv_title">Doanh Thu</string>
+    <string name="doanhthu_tv_title_tongtienhoadon">Doanh thu đơn hàng đã giao</string>
     <!-- Fragment LienHe  -->
     <string name="lienhe_tv_title">Liên Hệ</string>
     <string name="lienhe_tv_title_sdt">Số điện thoại</string>
     <string name="lienhe_tv_title_email">Email</string>
     <string name="lienhe_tv_title_phienbanungdung">Phiên bản ứng dụng</string>
 
+    <!-- Fragment TrangQuanLyLoaiVoucher    -->
+    <string name="trangquanlyloaivoucher_tv_title">Danh Sách Loại Voucher</string>
+    <string name="trangquanlyloaivoucher_tv_hint_timkiem">Tìm kiếm theo tên loại voucher</string>
+    <string name="trangquanlyloaivoucher_tv_title_themsanpham">Thêm Loại Voucher</string>
+    <string name="trangquanlyloaivoucher_tv_hint_tenloaivoucher">Tên loại voucher</string>
+    <string name="trangquanlyloaivoucher_tv_hint_motaloaivoucher">Mô tả loại voucher</string>
+    <string name="trangquanlyloaivoucher_tv_hint_tongtien">Giảm thành tiền (%)</string>
+    <string name="trangquanlyloaivoucher_tv_hint_phiship">Giảm phí giao hàng (%)</string>
+    <string name="trangquanlyloaivoucher_tv_hint_soluongtoithieu">Số lượng sản phẩm tối thiểu</string>
 
     <!-- Fragment TrangQuanLyVoucher    -->
     <string name="trangquanlyvoucher_tv_title">Danh Sách Voucher</string>

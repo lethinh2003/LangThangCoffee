@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_menu_tool_bar.MainActivity">
+    tools:context=".activities.MainActivity">
 
     <RelativeLayout
         android:id="@+id/rl_navigation_top"
@@ -90,7 +90,7 @@
                         tools:ignore="HardcodedText" />
 
                     <Button
-                        android:id="@+id/btn_heart_symbol"
+                        android:id="@+id/btn_heart_symbol_order"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_alignParentEnd="true"

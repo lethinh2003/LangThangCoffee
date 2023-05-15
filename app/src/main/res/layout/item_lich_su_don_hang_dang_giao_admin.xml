@@ -74,6 +74,35 @@
         android:text="Thời gian: 09/05/2023"
         android:textColor="@color/deep_black"
         android:textSize="15dp" />
-
+    <Button
+        android:id="@+id/btn_cancel_an_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_btn_pale_cream_radius_10dp"
+        android:fontFamily="@font/inter_bold"
+        android:padding="15dp"
+        android:text="@string/all_tv_btn_huydonhang"
+        android:textAllCaps="false"
+        android:textColor="@color/deep_orange"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/btn_hoan_tat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/custom_btn_pale_cream_radius_10dp"
+        android:fontFamily="@font/inter_bold"
+        android:padding="15dp"
+        android:text="@string/all_tv_btn_hoantat"
+        android:textAllCaps="false"
+        android:textColor="@color/deep_orange"
+        android:textStyle="bold" />
 
 </LinearLayout>
