@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
-
 }
 
 android {
@@ -64,6 +63,7 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-messaging'
     implementation 'com.google.firebase:firebase-analytics'
+
     implementation 'com.google.firebase:firebase-storage:19.1.0'
     implementation 'androidx.work:work-runtime-ktx:2.7.1'
 

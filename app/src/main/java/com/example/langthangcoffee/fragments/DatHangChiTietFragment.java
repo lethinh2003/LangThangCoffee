@@ -467,6 +467,8 @@ public class DatHangChiTietFragment extends Fragment implements FoodOrderTopping
                                     tvFoodDetailDesc.setText(foodOrder.getDesc());
                                     tvFoodDetailPrice.setText(String.valueOf(foodOrder.getPrice()) + " đ");
 // Create instance Lich su order
+                                    lichSuOrder.setTenSanPham(foodOrder.getName());
+
                                     lichSuOrder.setMaSanPham(foodOrder.getID());
                                     lichSuOrder.setKichThuoc(jsonObject.getString("TenKichThuoc"));
                                     lichSuOrder.setGiaTienKichThuoc(foodOrder.getPrice());

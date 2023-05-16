@@ -29,8 +29,8 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.langthangcoffee.activities.MainActivity;
 import com.example.langthangcoffee.R;
+import com.example.langthangcoffee.activities.MainActivity;
 import com.example.langthangcoffee.models.TaiKhoan;
 
 import org.json.JSONException;
@@ -46,18 +46,15 @@ public class SigninFragment extends Fragment {
     Button btnSignin;
     ImageView imgShowPassword;
     Boolean isShowPassword = false;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        sharedpreferences = getActivity().getSharedPreferences(MyPREFERENCES, getActivity().MODE_PRIVATE);
-        String sdtTaiKhoanStorage = sharedpreferences.getString("SDTTaiKhoan", "");
-        String matKhauStorage = sharedpreferences.getString("MatKhau", "");
-        Log.i("Account", sdtTaiKhoanStorage + " " + matKhauStorage);
+
         btnSignin = view.findViewById(R.id.btn_sign_in);
         imgShowPassword = view.findViewById(R.id.img_showpassword);
         edtPassKH = view.findViewById(R.id.edt_password);
         edtSDTKH = view.findViewById(R.id.edt_phone_number);
-
 
         LinearLayout app_layer = view.findViewById(R.id.ln_sign_up);
         // Open Sign up fragment
@@ -95,6 +92,7 @@ public class SigninFragment extends Fragment {
             }
         });
     }
+
     void updateImageShowHidePassword() {
         int drawableId = isShowPassword ? R.drawable.hidepassword : R.drawable.showpassword;
         imgShowPassword.setImageResource(drawableId);
@@ -135,16 +133,15 @@ public class SigninFragment extends Fragment {
 
 
                             mainActivity.setTaiKhoan(taiKhoan);
+
                             mainActivity.drawerNavigation();
                             // Load Dashboard fragment
                             DashBoardFragment dashBoardFragment = new DashBoardFragment();
                             mainActivity.loadFragment(dashBoardFragment);
 
                             // Storage information account
-                            SharedPreferences.Editor editor = sharedpreferences.edit();
-                            editor.putString("SDTTaiKhoan", edtSDTKH.getText().toString());
-                            editor.putString("MatKhau", edtPassKH.getText().toString());
-                            editor.commit();
+                            mainActivity.storageInformationLogin(edtSDTKH.getText().toString(), edtPassKH.getText().toString());
+
                             progressDialog.dismiss();
                         } catch (JSONException e) {
                             e.printStackTrace();

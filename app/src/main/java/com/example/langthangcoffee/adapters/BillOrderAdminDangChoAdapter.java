@@ -85,49 +85,15 @@ public class BillOrderAdminDangChoAdapter extends RecyclerView.Adapter<BillOrder
         holder.btnHuyDonHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity.getApplicationContext(), R.style.AlertDialogTheme);
-                builder.setCancelable(true);
-                builder.setTitle("Xác nhận hủy đơn hàng");
-                builder.setMessage("Có chắc muốn hủy đơn hàng này?");
-                builder.setPositiveButton("Confirm",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                huyDonHangDangCho(donHang.getMaDonHang());
-                            }
-                        });
-                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
+                huyDonHangDangCho(donHang.getMaDonHang());
 
-                AlertDialog dialog = builder.create();
-                dialog.show();
             }
         });
         holder.btnXacNhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(mainActivity.getApplicationContext(), R.style.AlertDialogTheme);
-                builder.setCancelable(true);
-                builder.setTitle("Xác nhận đơn hàng");
-                builder.setMessage("Có chắc muốn xác nhận đơn hàng này?");
-                builder.setPositiveButton("Confirm",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                xacNhanDonHangDangCho(donHang.getMaDonHang());
-                            }
-                        });
-                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
+                xacNhanDonHangDangCho(donHang.getMaDonHang());
 
-                AlertDialog dialog = builder.create();
-                dialog.show();
 
 
             }
@@ -147,7 +113,7 @@ public class BillOrderAdminDangChoAdapter extends RecyclerView.Adapter<BillOrder
 
     public void huyDonHangDangCho(int maDonHang) {
         try {
-            String url = mainActivity.getString(R.string.endpoint_server) + "/admin/donhang/xac-nhan-don-hang-dang-cho";
+            String url = mainActivity.getString(R.string.endpoint_server) + "/admin/donhang/huy-don-hang-dang-cho";
 
             final ProgressDialog progressDialog = new ProgressDialog(mainActivity);
             progressDialog.setMessage("Loading...");

@@ -2,6 +2,7 @@ package com.example.langthangcoffee.activities;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -50,6 +51,7 @@ import com.example.langthangcoffee.models.FoodOrder;
 import com.example.langthangcoffee.models.FoodOrderTopping;
 import com.example.langthangcoffee.models.LichSuOrder;
 import com.example.langthangcoffee.models.NavigationItem;
+import com.example.langthangcoffee.models.SanPham;
 import com.example.langthangcoffee.models.TaiKhoan;
 import com.example.langthangcoffee.viewmodels.SimpleItem;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -75,6 +77,8 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
     private DonHang donHang = null;
     private RecyclerView mDrawerList;
     private DrawerAdapter drawerAdapter;
+    SharedPreferences sharedpreferences;
+    public static final String MyPREFERENCES = "ACCOUNT_LOGIN";
 
     private final ActivityResultLauncher<String> requestPermissionLauncher =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
@@ -102,6 +106,8 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.tb_activity);
@@ -110,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         slidingRootNav = new SlidingRootNavBuilder(this).withDragDistance(180).withRootViewScale(0.75f).withRootViewElevation(25).withToolbarMenuToggle(toolbar).withMenuOpened(false).withContentClickableWhenMenuOpened(false).withSavedState(savedInstanceState).withMenuLayout(R.layout.drawer_menu).inject();
         // Draw navigation
         drawerNavigation();
+        keepLoginAccount();
 
     }
 
@@ -286,8 +293,126 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
             getDonHangMoiNhat();
             getTokenNotification();
             loadDanhSachSanPhamYeuThich();
+        } else {
+            setDanhSachSanPhamYeuThich(new ArrayList<>());
+            clearStorageInformationLogin();
         }
     }
+
+    public void storageInformationLogin(String taiKhoan, String matKhau) {
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString("SDTTaiKhoan", taiKhoan);
+        editor.putString("MatKhau", matKhau);
+        editor.commit();
+    }
+    public void clearStorageInformationLogin() {
+        SharedPreferences settings = getSharedPreferences(MyPREFERENCES,MODE_PRIVATE);
+        settings.edit().clear().commit();
+    }
+
+    public void keepLoginAccount() {
+        String sdtTaiKhoanStorage = sharedpreferences.getString("SDTTaiKhoan", "");
+        String matKhauStorage = sharedpreferences.getString("MatKhau", "");
+        if (sdtTaiKhoanStorage.length() != 0 && matKhauStorage.length() != 0) {
+            Log.i("Account", sdtTaiKhoanStorage + " " + matKhauStorage);
+            loginTaiKhoan(sdtTaiKhoanStorage, matKhauStorage);
+        }
+
+
+    }
+
+    public void loginTaiKhoan(String sdt, String matKhau) {
+        {
+            String url = getString(R.string.endpoint_server) + "/taikhoan/sign-in";
+
+            try {
+                final ProgressDialog progressDialog = new ProgressDialog(this);
+                progressDialog.setMessage("Loading...");
+                progressDialog.show();
+                JSONObject jsonBody = new JSONObject();
+                jsonBody.put("SDTTaiKhoan", sdt);
+                jsonBody.put("MatKhau", matKhau);
+                final String requestBody = jsonBody.toString();
+                //creating a string request to send request to the url
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //hiding the progressbar after completion
+
+                        try {
+                            //getting the whole json object from the response
+                            JSONObject obj = new JSONObject(response);
+                            // Instance TaiKhoan
+                            TaiKhoan taiKhoan = new TaiKhoan();
+                            JSONObject jsonObjectData = obj.getJSONObject("data");
+                            taiKhoan.setSdtTaiKhoan(jsonObjectData.getString("SDTTaiKhoan"));
+                            taiKhoan.setHo(jsonObjectData.getString("Ho"));
+                            taiKhoan.setTen(jsonObjectData.getString("Ten"));
+                            taiKhoan.setDiaChiGiaoHang(jsonObjectData.getString("DiaChiGiaoHang"));
+                            taiKhoan.setMaQuyenHan(jsonObjectData.getInt("MaQuyenHan"));
+                            taiKhoan.setTenQuyenHan(jsonObjectData.getString("TenQuyenHan"));
+                            taiKhoan.setDiaChiGiaoHang(jsonObjectData.getString("DiaChiGiaoHang"));
+                            setTaiKhoan(taiKhoan);
+                            drawerNavigation();
+                            // Load Dashboard fragment
+                            DashBoardFragment dashBoardFragment = new DashBoardFragment();
+                            loadFragment(dashBoardFragment);
+                            progressDialog.dismiss();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            progressDialog.dismiss();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        NetworkResponse response = error.networkResponse;
+                        if (error instanceof ServerError && response != null) {
+                            try {
+                                String res = new String(response.data, HttpHeaderParser.parseCharset(response.headers, "utf-8"));
+                                JSONObject obj = new JSONObject(res);
+                                Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                                DangXuatFragment dangXuatFragment = new DangXuatFragment();
+                                loadFragment(dangXuatFragment);
+                            } catch (UnsupportedEncodingException e1) {
+                                e1.printStackTrace();
+                            } catch (JSONException e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+
+
+                        progressDialog.dismiss();
+                    }
+                }) {
+
+                    @Override
+                    public String getBodyContentType() {
+                        return "application/json; charset=utf-8";
+                    }
+
+                    @Override
+                    public byte[] getBody() throws AuthFailureError {
+                        try {
+                            return requestBody == null ? null : requestBody.getBytes("utf-8");
+                        } catch (UnsupportedEncodingException uee) {
+                            VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
+                            return null;
+                        }
+                    }
+                };
+
+                //creating a request queue
+                RequestQueue requestQueue = Volley.newRequestQueue(this);
+                //adding the string request to request queue
+                requestQueue.add(stringRequest);
+
+            } catch (JSONException err) {
+                err.printStackTrace();
+            }
+        }
+    }
+
 
     public void getDonHangMoiNhat() {
         try {

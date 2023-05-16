@@ -108,7 +108,7 @@ public class BillOrderAdminDangGiaoAdapter extends RecyclerView.Adapter<BillOrde
     }
     public void huyDonHangDangGiao(int maDonHang) {
         try {
-            String url = mainActivity.getString(R.string.endpoint_server) + "/admin/donhang/xac-nhan-don-hang-dang-cho";
+            String url = mainActivity.getString(R.string.endpoint_server) + "/admin/donhang/huy-don-hang-dang-cho";
 
             final ProgressDialog progressDialog = new ProgressDialog(mainActivity);
             progressDialog.setMessage("Loading...");

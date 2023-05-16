@@ -113,9 +113,9 @@ public class TrangVoucherFragment extends Fragment {
                                     loaiVoucher.setTenLoaiVoucher(itemVoucher.getString("TenLoaiVoucher"));
                                     loaiVoucher.setHinhAnh(itemVoucher.getString("HinhAnh"));
                                     loaiVoucher.setMaLoaiVoucher(itemVoucher.getInt("MaLoaiVoucher"));
-                                    loaiVoucher.setPhiShip(jsonObject.getInt("PhiShip"));
-                                    loaiVoucher.setSoLuongToiThieu(jsonObject.getInt("SoLuongToiThieu"));
-                                    loaiVoucher.setTongTien(jsonObject.getInt("TongTien"));
+                                    loaiVoucher.setPhiShip(itemVoucher.getInt("PhiShip"));
+                                    loaiVoucher.setSoLuongToiThieu(itemVoucher.getInt("SoLuongToiThieu"));
+                                    loaiVoucher.setTongTien(itemVoucher.getInt("TongTien"));
 
                                     voucher.setLoaiVoucher(loaiVoucher);
                                     listVoucher.add(voucher);
