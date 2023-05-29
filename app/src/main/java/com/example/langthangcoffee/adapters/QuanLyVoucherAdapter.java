@@ -69,7 +69,12 @@ public class QuanLyVoucherAdapter extends RecyclerView.Adapter<QuanLyVoucherAdap
             int minutes = (int) ((difference % (1000 * 60 * 60)) / (1000 * 60));
             int hours   = (int) ((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             int days   = (int) (difference / (1000 * 60 * 60 * 24));
-            String thoiGianHetHan = "Hết hạn trong " + days + " ngày " +  hours + " giờ " + minutes + " phút nữa";
+            String thoiGianHetHan;
+            if (difference <=0) {
+                thoiGianHetHan = "Đã hết hạn";
+            } else {
+                thoiGianHetHan = "Hết hạn trong " + days + " ngày " +  hours + " giờ " + minutes + " phút nữa";
+            }
             holder.tvThoiGianHetHan.setText(thoiGianHetHan);
         } catch (ParseException e) {
             e.printStackTrace();

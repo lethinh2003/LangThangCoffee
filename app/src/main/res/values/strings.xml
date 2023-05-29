@@ -1,8 +1,7 @@
 <resources>
     <!--  All  -->
-    <string name="app_name"></string>
+    <string name="app_name">LangThang Coffee</string>
     <string name="endpoint_server">http://10.0.2.2/server_langthangcoffee</string>
-
     <string name="all_app_name_uppercase"><b>THE LANG THANG \n COFFEE</b></string>
 
     <!--    Layout-->
